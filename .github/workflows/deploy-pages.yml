@@ -1,26 +1,21 @@
-name: Deploy to GitHub Pages
+# 这是GitHub官方文档提供的极简工作流配置
+name: Deploy static content to Pages
 
 on:
   push:
-    branches: [ "master" ]
-  workflow_dispatch:
+    branches: ['master'] # 触发分支
+  workflow_dispatch: # 允许手动触发
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
-    # --- 关键修复：添加 environment 配置 ---
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    # --------------------------------------
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,7 +25,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '.' # 上传整个仓库根目录
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
