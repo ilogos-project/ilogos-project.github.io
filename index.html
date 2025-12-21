@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>iLogos Platform - Language Selection</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a237e, #283593);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .logo i {
+            color: #e74c3c;
+        }
+        .logo span {
+            color: #3498db;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        .language-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .lang-btn {
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            min-width: 180px;
+        }
+        .zh-btn {
+            background: white;
+            color: #1a237e;
+            border: 2px solid white;
+        }
+        .en-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .lang-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 600px) {
+            .language-buttons {
+                flex-direction: column;
+            }
+            .lang-btn {
+                min-width: auto;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="logo">
+        <i class="fas fa-university"></i>
+        <span>i</span>Logos
+    </div>
+    
+    <h1>iLogos Platform</h1>
+    <p>Ancient Language Big Data Platform<br>古代语言大数据平台</p>
+    
+    <div class="language-buttons">
+        <a href="zh/index.html" class="lang-btn zh-btn">
+            中文版<br>
+            <small style="font-size: 0.9rem; opacity: 0.8;">Chinese Version</small>
+        </a>
+        <a href="en/index.html" class="lang-btn en-btn">
+            English Version<br>
+            <small style="font-size: 0.9rem; opacity: 0.8;">英文版本</small>
+        </a>
+    </div>
+    
+    <div style="margin-top: 50px; opacity: 0.7; font-size: 0.9rem;">
+        <p>Select your preferred language to continue<br>选择您偏好的语言继续</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('iLogos Language Selector loaded');
+            
+            // 自动语言检测
+            const userLang = navigator.language || navigator.userLanguage;
+            console.log('Browser language detected:', userLang);
+            
+            // 5秒后自动跳转
+            setTimeout(() => {
+                if (userLang.startsWith('zh')) {
+                    window.location.href = 'zh/index.html';
+                } else {
+                    window.location.href = 'en/index.html';
+                }
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
