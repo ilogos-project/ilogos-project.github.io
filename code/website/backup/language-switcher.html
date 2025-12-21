@@ -1,0 +1,32 @@
+<div class="language-switcher">
+    <a href="/zh/" class="lang-btn zh-btn">中文</a>
+    <a href="/en/" class="lang-btn en-btn">EN</a>
+</div>
+<style>
+.language-switcher {
+    display: flex;
+    gap: 5px;
+}
+.lang-btn {
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.zh-btn {
+    background: #1a237e;
+    color: white;
+    border: 1px solid #1a237e;
+}
+.en-btn {
+    background: transparent;
+    color: #3498db;
+    border: 1px solid #3498db;
+}
+.lang-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+</style>
