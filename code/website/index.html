@@ -1,126 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>iLogos Platform - Language Selection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iLogos Open | 古代语言大数据平台</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #1a237e, #283593);
-            color: white;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .logo i {
-            color: #e74c3c;
-        }
-        .logo span {
-            color: #3498db;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-        .language-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .lang-btn {
-            padding: 15px 40px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: bold;
-            transition: all 0.3s;
-            min-width: 180px;
-        }
-        .zh-btn {
-            background: white;
-            color: #1a237e;
-            border: 2px solid white;
-        }
-        .en-btn {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        .lang-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        @media (max-width: 600px) {
-            .language-buttons {
-                flex-direction: column;
-            }
-            .lang-btn {
-                min-width: auto;
-                width: 100%;
-                max-width: 300px;
-            }
+        :root {
+            --font-serif: 'Noto Serif SC', serif;
+            --font-sans: 'Noto Sans SC', sans-serif;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="logo">
-        <i class="fas fa-university"></i>
-        <span>i</span>Logos
-    </div>
-    
-    <h1>iLogos Platform</h1>
-    <p>Ancient Language Big Data Platform<br>古代语言大数据平台</p>
-    
-    <div class="language-buttons">
-        <a href="zh/index.html" class="lang-btn zh-btn">
-            中文版<br>
-            <small style="font-size: 0.9rem; opacity: 0.8;">Chinese Version</small>
-        </a>
-        <a href="en/index.html" class="lang-btn en-btn">
-            English Version<br>
-            <small style="font-size: 0.9rem; opacity: 0.8;">英文版本</small>
-        </a>
-    </div>
-    
-    <div style="margin-top: 50px; opacity: 0.7; font-size: 0.9rem;">
-        <p>Select your preferred language to continue<br>选择您偏好的语言继续</p>
-    </div>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <i class="fas fa-monument"></i>
+                    </div>
+                    <span class="logo-text">iLogos Open</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="../en/igreek.html" class="nav-link">iGreek</a>
+                <a href="../en/ilatin.html" class="nav-link">iLatin</a>
+                <a href="../en/ilexicon.html" class="nav-link">iLexicon</a>
+                <div class="nav-dropdown">
+                    <a href="academic.html" class="nav-link">学术机构</a>
+                    <div class="dropdown-content">
+                        <a href="about/ccl.html">重庆大学古典辞书编纂研究中心</a>
+                    </div>
+                </div>
+                <a href="about/bibliotheca.html" class="nav-link">九译馆</a>
+                <a href="about.html" class="nav-link">关于</a>
+            </div>
+            
+            <div class="nav-lang">
+                <a href="../en/index.html" class="lang-link">EN</a>
+                <span class="lang-separator">|</span>
+                <a href="index.html" class="lang-link active">中文</a>
+            </div>
+        </div>
+    </nav>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('iLogos Language Selector loaded');
+    <!-- 英雄区域 -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">古代语言，现代学术</h1>
+                <p class="hero-subtitle">结合文献学精确性与前沿数据技术的古典语言研究顶级数字平台。</p>
+                <div class="hero-actions">
+                    <a href="#tools" class="btn btn-primary">探索工具</a>
+                    <a href="about.html" class="btn btn-secondary">了解更多</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div>学术视觉图</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 核心工具展示 -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h2 class="section-title">核心研究工具</h2>
+            <p class="section-subtitle">专为深度古典语言分析打造的专业平台</p>
             
-            // 自动语言检测
-            const userLang = navigator.language || navigator.userLanguage;
-            console.log('Browser language detected:', userLang);
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <h3 class="tool-title">iGreek</h3>
+                    <p class="tool-description">全面的希腊语语料库，包含形态分析、句法解析与文本校勘工具。</p>
+                    <div class="tool-actions">
+                        <a href="../en/igreek.html" class="tool-link">探索 iGreek <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="tool-title">iLatin</h3>
+                    <p class="tool-description">高级拉丁语文本数据库，包含词汇分析、历史语言学和手稿研究资源。</p>
+                    <div class="tool-actions">
+                        <a href="../en/ilatin.html" class="tool-link">探索 iLatin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="tool-title">iLexicon</h3>
+                    <p class="tool-description">动态词典平台，提供跨语言参考、词源树和语义映射功能。</p>
+                    <div class="tool-actions">
+                        <a href="../en/ilexicon.html" class="tool-link">探索 iLexicon <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作机构展示 -->
+    <section class="institutions-section">
+        <div class="container">
+            <h2 class="section-title">合作机构</h2>
+            <p class="section-subtitle">与顶尖学术中心合作，追求文献学卓越</p>
             
-            // 5秒后自动跳转
-            setTimeout(() => {
-                if (userLang.startsWith('zh')) {
-                    window.location.href = 'zh/index.html';
-                } else {
-                    window.location.href = 'en/index.html';
-                }
-            }, 5000);
-        });
-    </script>
+            <div class="institutions-grid">
+                <div class="institution-card">
+                    <div class="institution-logo-placeholder">
+                        <div>CCL</div>
+                    </div>
+                    <h3 class="institution-name">重庆大学古典辞书编纂研究中心</h3>
+                    <p class="institution-brief">致力于古典辞书数字化编纂与跨文化比较的领先研究中心。</p>
+                    <div class="institution-actions">
+                        <a href="about/ccl.html" class="btn btn-outline">了解更多</a>
+                    </div>
+                </div>
+                
+                <div class="institution-card">
+                    <div class="institution-logo-placeholder">
+                        <div>九译馆</div>
+                    </div>
+                    <h3 class="institution-name">九译馆</h3>
+                    <p class="institution-brief">致力于跨文化古典文本翻译与阐释的学术共同体。</p>
+                    <div class="institution-actions">
+                        <a href="about/bibliotheca.html" class="btn btn-outline">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-monument"></i> iLogos Open
+                    </div>
+                    <p class="footer-tagline">通过数字创新推动古代语言研究</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">平台</h4>
+                        <a href="../en/igreek.html" class="footer-link">iGreek</a>
+                        <a href="../en/ilatin.html" class="footer-link">iLatin</a>
+                        <a href="../en/ilexicon.html" class="footer-link">iLexicon</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-heading">关于</h4>
+                        <a href="about.html" class="footer-link">项目概述</a>
+                        <a href="about/ccl.html" class="footer-link">重庆大学古典辞书编纂研究中心</a>
+                        <a href="about/bibliotheca.html" class="footer-link">九译馆</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-heading">联系</h4>
+                        <a href="mailto:contact@ilogosopen.org" class="footer-link">联系我们</a>
+                        <a href="https://github.com/ilogos-project" class="footer-link">GitHub</a>
+                        <a href="#" class="footer-link">新闻通讯</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 iLogos Open 项目。保留所有权利。
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-legal-link">隐私政策</a>
+                    <a href="#" class="footer-legal-link">使用条款</a>
+                    <a href="#" class="footer-legal-link">无障碍访问</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
