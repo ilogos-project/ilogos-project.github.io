@@ -1,6 +1,5 @@
-/* ===== iLogos Open HUP风格样式表 ===== */
-/* 中国红主色: #C62F2F */
-/* 创建日期: 2025-01-15 */
+/* ===== iLogos Open HUP学术风格样式表 ===== */
+/* 中国红主色: #C62F2F | 创建日期: 2025-01-15 */
 
 :root {
     /* 中国红色系 */
@@ -18,6 +17,11 @@
     --color-bg-gray: #F5F5F5;
     --color-border: #E0E0E0;
     --color-border-light: #EEEEEE;
+    
+    /* 🏛️ 新增：Logo图标颜色 */
+    --color-icon-stone: #5d4037;      /* 建筑石灰色 */
+    --color-icon-stone-light: #8d6e63; /* 浅石灰色 */
+    --color-icon-stone-dark: #3e2723;  /* 深石灰色 */
     
     /* 字体 */
     --font-serif: 'Noto Serif', 'Noto Serif SC', serif;
@@ -195,23 +199,30 @@ a:hover {
     color: var(--color-primary);
 }
 
+/* 🏛️ 更新Logo图标样式 - 使用Font Awesome和石灰色 */
 .logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.8rem; /* 使用字体图标大小 */
+    color: var(--color-icon-stone); /* 🏛️ 建筑石灰色 */
+    transition: all var(--transition-normal);
+    margin-right: 0.5rem; /* 与文字间距 */
+}
+
+.logo-link:hover .logo-icon {
+    color: var(--color-icon-stone-light); /* 悬停时浅石灰色 */
+    transform: scale(1.05);
+}
+
+/* 原来的图标背景图样式 - 注释掉，因为现在用Font Awesome */
+/*
+.logo-icon {
     width: 36px;
     height: 36px;
+    background-image: url('../images/logos/temple.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-
-.logo-icon i {
-    color: var(--color-primary); /* 中国红 #C62F2F */
-    font-size: 28px; /* 图标大小 */
-    transition: color 0.2s ease;
-}
-
-.logo-link:hover .logo-icon i {
-    color: var(--color-primary-dark); /* 深红色悬停效果 */
-}
+*/
 
 .logo-text {
     font-family: var(--font-serif);
@@ -438,7 +449,7 @@ a:hover {
 
 .tool-icon {
     font-size: 2.5rem;
-    color: var(--color-primary);
+    color: var(--color-primary); /* 工具图标保持红色 */
     margin-bottom: var(--spacing-md);
 }
 
@@ -623,6 +634,7 @@ a:hover {
     max-width: 300px;
 }
 
+/* 🏛️ 更新页脚Logo图标 */
 .footer-logo {
     display: flex;
     align-items: center;
@@ -632,6 +644,15 @@ a:hover {
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
     color: var(--color-primary);
+}
+
+.footer-logo i {
+    color: var(--color-icon-stone); /* 🏛️ 页脚也用石灰色 */
+    transition: color var(--transition-normal);
+}
+
+.footer-logo:hover i {
+    color: var(--color-icon-stone-light); /* 悬停变浅 */
 }
 
 .footer-tagline {
@@ -718,7 +739,7 @@ a:hover {
 
 @media (max-width: 768px) {
     .nav-menu {
-        display: none; /* 移动端需要汉堡菜单 */
+        display: none;
     }
     
     .tools-grid,
