@@ -199,20 +199,31 @@ a:hover {
     color: var(--color-primary);
 }
 
-/* 🏛️ 更新Logo图标样式 - 使用Font Awesome和石灰色 */
+/* 🏛️ 更新Logo图标样式 - 使用fa-university和石灰色 */
 .logo-icon {
-    font-size: 1.8rem; /* 使用字体图标大小 */
-    color: var(--color-icon-stone); /* 🏛️ 建筑石灰色 */
+    /* 核心：确保显示为字体图标 */
+    display: inline-block !important;
+    font-family: "fa-university 6 Free" !important;
+    font-weight: 900 !important;
+    /* 样式 */
+    font-size: 1.8rem !important;
+    color: #5d4037 !important; /* 直接使用石灰色值，绕过变量可能的问题 */
+    margin-right: 0.5rem !important;
     transition: all var(--transition-normal);
-    margin-right: 0.5rem; /* 与文字间距 */
+    /* 关键：彻底清除任何背景图样式的可能性 */
+    background: none !important;
+    background-image: none !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: 1 !important;
 }
 
 .logo-link:hover .logo-icon {
-    color: var(--color-icon-stone-light); /* 悬停时浅石灰色 */
+    color: #8d6e63 !important; /* 直接使用浅石灰色值 */
     transform: scale(1.05);
 }
 
-/* 原来的图标背景图样式 - 注释掉，因为现在用Font Awesome */
+/* 原来的图标背景图样式 - 注释掉，因为现在用fa-university */
 /*
 .logo-icon {
     width: 36px;
