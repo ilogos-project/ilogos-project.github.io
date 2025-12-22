@@ -196,12 +196,21 @@ a:hover {
 }
 
 .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 36px;
     height: 36px;
-    background-image: url('../images/logos/temple.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+}
+
+.logo-icon i {
+    color: var(--color-primary); /* 中国红 #C62F2F */
+    font-size: 28px; /* 图标大小 */
+    transition: color 0.2s ease;
+}
+
+.logo-link:hover .logo-icon i {
+    color: var(--color-primary-dark); /* 深红色悬停效果 */
 }
 
 .logo-text {
