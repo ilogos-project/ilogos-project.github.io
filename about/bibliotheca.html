@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九译馆 | iLogos Open</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* 内容区专用样式 */
+        .bibliotheca-content {
+            line-height: 1.85;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .bibliotheca-content p {
+            margin-bottom: 1.3rem;
+            text-align: justify;
+            text-indent: 2em;
+        }
+        .bibliotheca-content p.no-indent {
+            text-indent: 0;
+        }
+        .bibliotheca-content blockquote {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--color-primary-dark);
+            border-left: 4px solid var(--color-primary);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+        .section-title {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary-light);
+            padding-bottom: 0.5rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.8rem;
+        }
+        .english-section {
+            font-family: 'Times New Roman', serif;
+            background-color: #f9f9f9;
+            border-left: 3px solid #ccc;
+            padding: 1.5rem 2rem;
+            margin: 2.5rem 0;
+        }
+        .english-section h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .term-emphasis {
+            font-weight: bold;
+            color: var(--color-primary-dark);
+        }
+        .book-emphasis {
+            font-style: italic;
+            font-weight: 500;
+        }
+        .historical-ref {
+            font-weight: bold;
+            color: #5d4037;
+        }
+        .intro-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .intro-header h1 {
+            font-size: 2.8rem;
+            color: var(--color-primary);
+            margin-bottom: 0.8rem;
+        }
+        .intro-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+        .image-placeholder {
+            background-color: var(--color-bg-light);
+            border: 1px dashed var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: var(--color-text-lighter);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="logo-link">
+                    <i class="fas fa-university logo-icon"></i>
+                    <span class="logo-text">iLogos Open</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                <!-- 重点：此处是您需要在其他页面（如index.html）更新的导航栏代码 -->
+                <!-- 结构如下（此代码仅作示例，请勿直接放在本文件中） -->
+                <!-- 
+                <div class="nav-dropdown">
+                    <a href="../academic.html" class="nav-link">学术机构</a>
+                    <div class="dropdown-content">
+                        <a href="about/ccl.html">重庆大学古典辞书编纂研究中心</a>
+                        <!-- 需要添加的新链接 -->
+                        <a href="about/bibliotheca.html">九译馆</a>
+                        <!-- 其他链接... -->
+                    </div>
+                </div>
+                -->
+                <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                <a href="../igreek.html" class="nav-link">iGreek</a>
+                <a href="../ilatin.html" class="nav-link">iLatin</a>
+                <a href="../ilexicon.html" class="nav-link">iLexicon</a>
+                <div class="nav-dropdown">
+                    <a href="../academic.html" class="nav-link active">学术机构</a>
+                    <div class="dropdown-content">
+                        <a href="ccl.html">重庆大学古典辞书编纂研究中心</a>
+                        <!-- 本页链接，当前页面高亮 -->
+                        <a href="bibliotheca.html" class="active">九译馆</a>
+                    </div>
+                </div>
+                <a href="../about.html" class="nav-link">关于</a>
+            </div>
+            <div class="nav-lang">
+                <a href="../en/index.html" class="lang-link">EN</a>
+                <span class="lang-separator">|</span>
+                <a href="../index.html" class="lang-link active">中文</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面主内容区 -->
+    <main class="container" style="padding-top: 100px; padding-bottom: 4rem;">
+        <article class="bibliotheca-content">
+            
+            <!-- 页头 -->
+            <header class="intro-header">
+                <h1>"九译馆丛书"缘起</h1>
+                <p class="subtitle">Bibliotheca Translatio Nona</p>
+                <!-- 文档中提及的图片占位符 -->
+                <div class="image-placeholder">
+                    <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+                    文档中引用的历史图片位置
+                </div>
+            </header>
+
+            <!-- 张文襄公引言 -->
+            <blockquote>
+                且刻书者<br>
+                传先哲之精蕴，启后学之困蒙<br>
+                亦利济之先务，积善之雅谈也<br>
+                <footer>——张文襄公</footer>
+            </blockquote>
+
+            <!-- “九译”释义 -->
+            <h2 class="section-title">"九译"释义</h2>
+            <p>"九译"有三种解释：</p>
+            <p>一、<span class="term-emphasis">"辗转翻译"</span>：<span class="historical-ref">《史记·大宛列传》</span>："重九译，致殊俗。"<span class="historical-ref">张衡《东京赋》</span>："西包大秦，东过乐浪，重舌之人九译，佥稽首而来王。"</p>
+            <p>二、<span class="term-emphasis">"边远地区或外国"</span>：<span class="historical-ref">《韩诗外传》</span>："比期三年，果有越裳氏重九译而至，献白雉於周公曰：'道路悠远，山川幽深，恐使人之未达也，故重译而来。'"</p>
+            <p>三、<span class="term-emphasis">官名</span>：<span class="historical-ref">《汉书·表·百官公卿表上》</span>有"九译令"，犹后世"通译官"。</p>
+
+            <!-- 缘起正文 -->
+            <h2 class="section-title">丛书缘起</h2>
+            <p>有汉以来，文翁化蜀，中华蜀学文脉浩荡，于北宋成就冠绝中国的大文豪<span class="historical-ref">苏轼</span>。近世<span class="historical-ref">张文襄公之洞</span>创尊经书院，化成康粱变法之先导"六译圣人"<span class="historical-ref">廖平</span>，传世<span class="book-emphasis">"六译馆丛书"</span>八十卷。</p>
+            <p class="no-indent"><span class="term-emphasis">"九译馆丛书"</span>兼取"九译"两义"辗转翻译"与"边远地区或外国"，效法圣人<span class="book-emphasis">"六译馆丛书"</span>，致力于迻译古希腊罗马文献，从尚未有汉译的西学古典入手，逐步重译已有汉译但未臻完善的古典名著：为西方文明奠基的古代文献，理应有多种可靠的汉语译本。</p>
+            <p>唐宗曰："以古为鉴，可知兴替。"如今，以"古希腊罗马"为鉴，乃"古鉴"题中应有之义。九译馆（重庆）文化传播有限公司，期待与资深出版机构合作，期待国外古典文献出版机构版权支持，以建设一家专注于希腊语和拉丁语文献汉译的古典学术出版机构。</p>
+
+            <!-- 英文展望部分 -->
+            <div class="english-section">
+                <h3>Prospect for Publishing</h3>
+                <p><strong>Bibliotheca Translatio Nona (Chongqing) Cultural Communication Co., Ltd.</strong> is committed to translating and publishing ancient Greek and Latin literature, starting with classical authors or volumes that have not yet been translated into Chinese, and gradually retranslating classical works already translated but in need of an improved version. These monumental documents, which have laid the foundation of Western civilization, should have a variety of reliable Chinese translations.</p>
+                <p>The Tang Emperor Taizong said, <em>"Taking ancient history as a mirror, one can get to understand the rise and fall of dynasties."</em> And now, when one is taking ancient Greece and Rome as one's mirror, the notion of an "ancient mirror" gets the significance it deserves.</p>
+                <p>We are expecting opportunities to cooperate with classical scholars and publishers. We are looking forward to the copyright support from foreign publishing institutions. Our ambition is to build a private Chinese translating and publishing house concentrating on ancient Greek and Latin literature.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fas fa-university"></i> iLogos Open</div>
+                    <p class="footer-tagline">通过数字创新推动古代语言研究</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">平台</h4>
+                        <a href="../igreek.html" class="footer-link">iGreek</a>
+                        <a href="../ilatin.html" class="footer-link">iLatin</a>
+                        <a href="../ilexicon.html" class="footer-link">iLexicon</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">关于</h4>
+                        <a href="../about.html" class="footer-link">项目概述</a>
+                        <a href="ccl.html" class="footer-link">重庆大学古典辞书编纂研究中心</a>
+                        <a href="about/bibliotheca.html">九译馆</a>
+                        <a href="about/bibliotheca.html" class="nav-link">九译馆</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">联系</h4>
+                        <a href="mailto:contact@ilogosopen.org" class="footer-link">联系我们</a>
+                        <a href="#" class="footer-link">GitHub</a>
+                        <a href="#" class="footer-link">新闻通讯</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">© 2025 iLogos Open 项目。保留所有权利。</div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-legal-link">隐私政策</a>
+                    <a href="#" class="footer-legal-link">使用条款</a>
+                    <a href="#" class="footer-legal-link">无障碍访问</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
