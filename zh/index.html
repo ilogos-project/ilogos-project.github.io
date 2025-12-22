@@ -1,370 +1,229 @@
 <!DOCTYPE html>
-<html lang="zh-CN en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iLogos Platform | Ancient Language Big Data Platform</title>
+    <title>iLogos Open | 古代语言大数据平台</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-        
-        .navbar {
-            background: #2c3e50;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo i { color: #e74c3c; }
-        .logo span { color: #3498db; }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-links a:hover { opacity: 0.8; }
-        
-        .hero {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            color: white;
-            padding: 12rem 2rem 8rem;
-            text-align: center;
-            margin-top: 60px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin: 0 auto 3rem;
-            opacity: 0.85;
-            line-height: 1.8;
-            max-width: 700px;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid #e74c3c;
-        }
-        
-        .cta-button:hover {
-            background: transparent;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
-        }
-        
-        .cta-button.secondary {
-            background: transparent;
-            border: 2px solid white;
-        }
-        
-        .cta-button.secondary:hover {
-            background: white;
-            color: #1a237e;
-        }
-        
-        .products {
-            padding: 6rem 2rem;
-            background: white;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .product-card {
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            padding: 2.5rem;
-            transition: all 0.3s;
-            background: white;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-color: #1a237e;
-        }
-        
-        .product-icon {
-            font-size: 3rem;
-            color: #1a237e;
-            margin-bottom: 1.5rem;
-        }
-        
-        .product-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-        
-        .status-dev { background: #fff3cd; color: #856404; }
-        .status-plan { background: #d1ecf1; color: #0c5460; }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding: 10rem 1rem 6rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-            
-            .nav-links {
-                display: none;
-            }
+        :root {
+            --font-serif: 'Noto Serif SC', serif;
+            --font-sans: 'Noto Sans SC', sans-serif;
         }
     </style>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 <body>
+    <!-- 顶部导航栏 -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-university"></i>
-                <span>i</span>Logos
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon"></div>
+                    <span class="logo-text">iLogos Open</span>
+                </a>
             </div>
-            <div class="nav-links">
-                <a href="#products">项目构成</a>
-                <a href="#features">技术特性</a>
-                <a href="#research">学术研究</a>
-                <a href="#collaboration">合作参与</a>
-                <a href="/en" style="color: #3498db;">EN</a>
+            
+            <div class="nav-menu">
+                <a href="../en/igreek.html" class="nav-link">iGreek</a>
+                <a href="../en/ilatin.html" class="nav-link">iLatin</a>
+                <a href="../en/ilexicon.html" class="nav-link">iLexicon</a>
+                <div class="nav-dropdown">
+                    <a href="academic.html" class="nav-link">学术机构</a>
+                    <div class="dropdown-content">
+                        <a href="about/ccl.html">重庆大学古典辞书编纂研究中心</a>
+                    </div>
+                </div>
+                <a href="about/bibliotheca.html" class="nav-link">九译馆</a>
+                <a href="about.html" class="nav-link">关于</a>
+            </div>
+            
+            <div class="nav-lang">
+                <a href="../en/index.html" class="lang-link">EN</a>
+                <span class="lang-separator">|</span>
+                <a href="index.html" class="lang-link active">中文</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>重建人类语言的数字谱系</h1>
-            <div class="hero-subtitle">Ancient Language Big Data Platform</div>
-            <p>iLogos平台是首个专注于古代语言大数据的科研基础设施，集成iLatin拉丁语语料库、iGreek希腊语语料库及智能词典iLex，为历史语言学、数字人文研究提供全新工具。</p>
+    <!-- 英雄区域 -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">古代语言，现代学术</h1>
+                <p class="hero-subtitle">结合文献学精确性与前沿数据技术的古典语言研究顶级数字平台。</p>
+                <div class="hero-actions">
+                    <a href="#tools" class="btn btn-primary">探索工具</a>
+                    <a href="about.html" class="btn btn-secondary">了解更多</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div>学术视觉图</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 核心工具展示 -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h2 class="section-title">核心研究工具</h2>
+            <p class="section-subtitle">专为深度古典语言分析打造的专业平台</p>
             
-            <div class="cta-buttons">
-                <a href="#products" class="cta-button">探索平台</a>
-                <a href="#collaboration" class="cta-button secondary">学术合作</a>
-                <a href="https://github.com/ilogos-platform" class="cta-button secondary" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+            <div class="tools-grid">
+                <!-- iGreek 卡片 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <h3 class="tool-title">iGreek</h3>
+                    <p class="tool-description">全面的希腊语语料库，包含形态分析、句法解析与文本校勘工具。</p>
+                    <div class="tool-actions">
+                        <a href="../en/igreek.html" class="tool-link">探索 iGreek <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- iLatin 卡片 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="tool-title">iLatin</h3>
+                    <p class="tool-description">高级拉丁语文本数据库，包含词汇分析、历史语言学和手稿研究资源。</p>
+                    <div class="tool-actions">
+                        <a href="../en/ilatin.html" class="tool-link">探索 iLatin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- iLexicon 卡片 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="tool-title">iLexicon</h3>
+                    <p class="tool-description">动态词典平台，提供跨语言参考、词源树和语义映射功能。</p>
+                    <div class="tool-actions">
+                        <a href="../en/ilexicon.html" class="tool-link">探索 iLexicon <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="products" class="products">
-        <h2 class="section-title">平台构成</h2>
-        <p class="section-subtitle">三大核心组件，构建古代语言研究新范式</p>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-scroll"></i>
-                </div>
-                <h3>iLatin Corpus</h3>
-                <p>全面收录从古典时期到中世纪的拉丁语文本，包含碑铭、手稿、文学著作等多源数据。支持高级语法检索、历时分析、变体对比。</p>
-                <div style="margin-top: auto;">
-                    <p><strong>覆盖时期：</strong>公元前3世纪 - 公元15世纪</p>
-                    <p><strong>数据规模：</strong>目标词条 15M+</p>
-                    <span class="status-badge status-dev">开发进行中</span>
-                </div>
-            </div>
+    <!-- 合作机构展示 -->
+    <section class="institutions-section">
+        <div class="container">
+            <h2 class="section-title">合作机构</h2>
+            <p class="section-subtitle">与顶尖学术中心合作，追求文献学卓越</p>
             
-            <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-landmark"></i>
+            <div class="institutions-grid">
+                <!-- CCL 卡片 -->
+                <div class="institution-card">
+                    <div class="institution-logo-placeholder">
+                        <div>CCL</div>
+                    </div>
+                    <h3 class="institution-name">重庆大学古典辞书编纂研究中心</h3>
+                    <p class="institution-brief">致力于古典辞书数字化编纂与跨文化比较的领先研究中心。</p>
+                    <div class="institution-actions">
+                        <a href="about/ccl.html" class="btn btn-outline">了解更多</a>
+                    </div>
                 </div>
-                <h3>iGreek Corpus</h3>
-                <p>涵盖古希腊语各个时期与方言的文本集合，从迈锡尼线性B到拜占庭文献，实现跨时代语言演变追踪与方言对比分析。</p>
-                <div style="margin-top: auto;">
-                    <p><strong>覆盖方言：</strong>爱奥尼亚、多利亚、阿提卡等</p>
-                    <p><strong>数据规模：</strong>规划词条 10M+</p>
-                    <span class="status-badge status-plan">规划阶段</span>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-book-open"></i>
-                </div>
-                <h3>iLex Dictionary</h3>
-                <p>智能拉丁语词典，深度整合语料库实例，提供词源学信息、使用频率统计、历时语义演化和共现网络可视化。</p>
-                <div style="margin-top: auto;">
-                    <p><strong>核心功能：</strong>智能查询、词族分析、搭配统计</p>
-                    <p><strong>词条目标：</strong>50,000+ 基础词条</p>
-                    <span class="status-badge status-dev">同步开发中</span>
+                
+                <!-- 九译馆卡片 -->
+                <div class="institution-card">
+                    <div class="institution-logo">
+                        <img src="../assets/images/logos/bibliotheca.png" alt="九译馆 Logo">
+                    </div>
+                    <h3 class="institution-name">九译馆</h3>
+                    <p class="institution-brief">致力于跨文化古典文本翻译与阐释的学术共同体。</p>
+                    <div class="institution-actions">
+                        <a href="about/bibliotheca.html" class="btn btn-outline">了解更多</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="padding: 6rem 2rem; background: #f8f9fa; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title">技术特性</h2>
-        <p class="section-subtitle">融合现代自然语言处理技术与古典语言学方法</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-brain" style="font-size: 2.5rem; color: #1a237e; margin-bottom: 1.5rem;"></i>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">NLP增强分析</h3>
-                <p>定制古语言处理模型，支持词形还原、句法分析、语义标注</p>
-            </div>
+    <!-- 精选内容区域 -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title">精选内容</h2>
             
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-chart-line" style="font-size: 2.5rem; color: #1a237e; margin-bottom: 1.5rem;"></i>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">历时可视化</h3>
-                <p>词汇使用频率、语义演变、语法变化的跨世纪追踪</p>
-            </div>
-            
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-search" style="font-size: 2.5rem; color: #1a237e; margin-bottom: 1.5rem;"></i>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">高级检索</h3>
-                <p>支持正则表达式、模糊查询、语法特征检索等专业功能</p>
-            </div>
-            
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-code" style="font-size: 2.5rem; color: #1a237e; margin-bottom: 1.5rem;"></i>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">开放API</h3>
-                <p>RESTful API接口，支持学术研究和第三方工具集成</p>
+            <div class="featured-grid">
+                <article class="featured-article">
+                    <div class="article-category">研究更新</div>
+                    <h3 class="article-title">荷马希腊语新形态分析器</h3>
+                    <p class="article-excerpt">iGreek平台现包含增强版荷马方言分析器，分词分析准确率提升27%。</p>
+                    <a href="#" class="article-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <article class="featured-article">
+                    <div class="article-category">项目公告</div>
+                    <h3 class="article-title">西塞罗书信数字版</h3>
+                    <p class="article-excerpt">与帕拉蒂尼图书馆合作，数字化并校注350+封书信及其文本变体。</p>
+                    <a href="#" class="article-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <article class="featured-article">
+                    <div class="article-category">方法论</div>
+                    <h3 class="article-title">古代辞书编纂中的语义映射</h3>
+                    <p class="article-excerpt">iLexicon如何运用网络分析可视化古典词汇的语义关系。</p>
+                    <a href="#" class="article-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                </article>
             </div>
         </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('iLogos平台网站已加载');
-            
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div style="width: 24px; height: 24px; background-image: url('../assets/images/logos/temple.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                        iLogos Open
+                    </div>
+                    <p class="footer-tagline">通过数字创新推动古代语言研究</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">平台</h4>
+                        <a href="../en/igreek.html" class="footer-link">iGreek</a>
+                        <a href="../en/ilatin.html" class="footer-link">iLatin</a>
+                        <a href="../en/ilexicon.html" class="footer-link">iLexicon</a>
+                    </div>
                     
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+                    <div class="footer-column">
+                        <h4 class="footer-heading">关于</h4>
+                        <a href="about.html" class="footer-link">项目概述</a>
+                        <a href="about/ccl.html" class="footer-link">重庆大学古典辞书编纂研究中心</a>
+                        <a href="about/bibliotheca.html" class="footer-link">九译馆</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-heading">联系</h4>
+                        <a href="mailto:contact@ilogosopen.org" class="footer-link">联系我们</a>
+                        <a href="https://github.com/ilogos-project" class="footer-link">GitHub</a>
+                        <a href="#" class="footer-link">新闻通讯</a>
+                    </div>
+                </div>
+            </div>
             
-            console.log('%c🔬 iLogos Platform', 'color: #1a237e; font-size: 16px; font-weight: bold;');
-            console.log('%cAncient Language Big Data Platform', 'color: #666;');
-        });
-    </script>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 iLogos Open 项目。保留所有权利。
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-legal-link">隐私政策</a>
+                    <a href="#" class="footer-legal-link">使用条款</a>
+                    <a href="#" class="footer-legal-link">无障碍访问</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
