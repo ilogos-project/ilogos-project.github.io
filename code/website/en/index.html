@@ -3,371 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iLogos Platform | Ancient Language Big Data Platform</title>
+    <title>iLogos Open | Ancient Language Data Platform</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-        
-        .navbar {
-            background: #2c3e50;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo i { color: #e74c3c; }
-        .logo span { color: #3498db; }
-        
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-links a:hover { opacity: 0.8; }
-        
-        .hero {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            color: white;
-            padding: 12rem 2rem 8rem;
-            text-align: center;
-            margin-top: 60px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin: 0 auto 3rem;
-            opacity: 0.85;
-            line-height: 1.8;
-            max-width: 700px;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid #e74c3c;
-        }
-        
-        .cta-button:hover {
-            background: transparent;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
-        }
-        
-        .cta-button.secondary {
-            background: transparent;
-            border: 2px solid white;
-        }
-        
-        .cta-button.secondary:hover {
-            background: white;
-            color: #1a237e;
-        }
-        
-        .products {
-            padding: 6rem 2rem;
-            background: white;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .product-card {
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            padding: 2.5rem;
-            transition: all 0.3s;
-            background: white;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-color: #1a237e;
-        }
-        
-        .product-icon {
-            font-size: 3rem;
-            color: #1a237e;
-            margin-bottom: 1.5rem;
-        }
-        
-        .product-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-        
-        .status-dev { background: #fff3cd; color: #856404; }
-        .status-plan { background: #d1ecf1; color: #0c5460; }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding: 10rem 1rem 6rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 <body>
+    <!-- Top Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-university"></i>
-                <span>i</span>Logos
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <i class="fas fa-monument"></i>
+                    </div>
+                    <span class="logo-text">iLogos Open</span>
+                </a>
             </div>
-            <div class="nav-links">
-                <a href="#products">Platform Components</a>
-                <a href="#features">Technical Features</a>
-                <a href="#research">Academic Research</a>
-                <a href="#collaboration">Collaboration</a>
-                <a href="../zh/index.html" style="color: #3498db;">中文</a>
+            
+            <div class="nav-menu">
+                <a href="igreek.html" class="nav-link">iGreek</a>
+                <a href="ilatin.html" class="nav-link">iLatin</a>
+                <a href="ilexicon.html" class="nav-link">iLexicon</a>
+                <div class="nav-dropdown">
+                    <a href="academic.html" class="nav-link">Academic Institutions</a>
+                    <div class="dropdown-content">
+                        <a href="about/ccl.html">CCL at Chongqing University</a>
+                    </div>
+                </div>
+                <a href="about/bibliotheca.html" class="nav-link">Bibliotheca Translatio Nona</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            
+            <div class="nav-lang">
+                <a href="index.html" class="lang-link active">EN</a>
+                <span class="lang-separator">|</span>
+                <a href="../zh/index.html" class="lang-link">中文</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Reconstructing the Digital Genealogy of Human Languages</h1>
-            <div class="hero-subtitle">Ancient Language Big Data Platform</div>
-            <p>The iLogos Platform is the first research infrastructure focusing on ancient language big data, integrating the iLatin Latin corpus, iGreek Greek corpus, and intelligent dictionary iLex, providing new tools for historical linguistics and digital humanities research.</p>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Ancient Languages, Modern Scholarship</h1>
+                <p class="hero-subtitle">A premier digital platform for classical language research, combining philological precision with cutting-edge data technology.</p>
+                <div class="hero-actions">
+                    <a href="#tools" class="btn btn-primary">Explore Tools</a>
+                    <a href="about.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div>Academic Visual</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Core Tools Section -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Core Research Tools</h2>
+            <p class="section-subtitle">Specialized platforms for in-depth classical language analysis</p>
             
-            <div class="cta-buttons">
-                <a href="#products" class="cta-button">Explore Platform</a>
-                <a href="#collaboration" class="cta-button secondary">Academic Collaboration</a>
-                <a href="https://github.com/ilogos-platform" class="cta-button secondary" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+            <div class="tools-grid">
+                <!-- iGreek Card -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <h3 class="tool-title">iGreek</h3>
+                    <p class="tool-description">Comprehensive Greek language corpus with morphological analysis, syntactic parsing, and textual criticism tools.</p>
+                    <div class="tool-actions">
+                        <a href="igreek.html" class="tool-link">Explore iGreek <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- iLatin Card -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="tool-title">iLatin</h3>
+                    <p class="tool-description">Advanced Latin textual database with lexical analysis, historical linguistics, and manuscript studies resources.</p>
+                    <div class="tool-actions">
+                        <a href="ilatin.html" class="tool-link">Explore iLatin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- iLexicon Card -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="tool-title">iLexicon</h3>
+                    <p class="tool-description">Dynamic dictionary platform with cross-linguistic references, etymological trees, and semantic mapping.</p>
+                    <div class="tool-actions">
+                        <a href="ilexicon.html" class="tool-link">Explore iLexicon <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="products" class="products">
-        <h2 class="section-title">Platform Components</h2>
-        <p class="section-subtitle">Three core components building a new paradigm for ancient language research</p>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-scroll"></i>
-                </div>
-                <h3>iLatin Corpus</h3>
-                <p>Comprehensive collection of Latin texts from classical to medieval periods, including inscriptions, manuscripts, literary works, and multi-source data. Supports advanced grammatical search, diachronic analysis, and variant comparison.</p>
-                <div style="margin-top: auto;">
-                    <p><strong>Time Coverage:</strong> 3rd Century BC - 15th Century AD</p>
-                    <p><strong>Data Scale:</strong> Target 15M+ tokens</p>
-                    <span class="status-badge status-dev">In Development</span>
-                </div>
-            </div>
+    <!-- Collaborating Institutions Section -->
+    <section class="institutions-section">
+        <div class="container">
+            <h2 class="section-title">Collaborating Institutions</h2>
+            <p class="section-subtitle">Partnering with leading academic centers for philological excellence</p>
             
-            <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-landmark"></i>
+            <div class="institutions-grid">
+                <!-- CCL Card -->
+                <div class="institution-card">
+                    <div class="institution-logo-placeholder">
+                        <div>CCL</div>
+                    </div>
+                    <h3 class="institution-name">Classical Lexicography Center</h3>
+                    <p class="institution-brief">Chongqing University's premier research center for classical dictionary compilation and philological studies.</p>
+                    <div class="institution-actions">
+                        <a href="about/ccl.html" class="btn btn-outline">Learn More</a>
+                    </div>
                 </div>
-                <h3>iGreek Corpus</h3>
-                <p>Collection of Ancient Greek texts covering all periods and dialects, from Mycenaean Linear B to Byzantine literature, enabling cross-era language evolution tracking and dialect comparison.</p>
-                <div style="margin-top: auto;">
-                    <p><strong>Dialects Covered:</strong> Ionic, Doric, Attic, etc.</p>
-                    <p><strong>Data Scale:</strong> Planned 10M+ tokens</p>
-                    <span class="status-badge status-plan">Planning Phase</span>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-book-open"></i>
-                </div>
-                <h3>iLex Dictionary</h3>
-                <p>Intelligent Latin dictionary deeply integrated with corpus instances, providing etymological information, usage frequency statistics, diachronic semantic evolution, and co-occurrence network visualization.</p>
-                <div style="margin-top: auto;">
-                    <p><strong>Core Features:</strong> Intelligent search, word family analysis, collocation statistics</p>
-                    <p><strong>Entry Target:</strong> 50,000+ base entries</p>
-                    <span class="status-badge status-dev">Simultaneous Development</span>
+                
+                <!-- Bibliotheca Translatio Nona Card -->
+                <div class="institution-card">
+                    <div class="institution-logo-placeholder">
+                        <div>九译馆</div>
+                    </div>
+                    <h3 class="institution-name">Bibliotheca Translatio Nona</h3>
+                    <p class="institution-brief">A scholarly initiative dedicated to the translation and interpretation of classical texts across cultural boundaries.</p>
+                    <div class="institution-actions">
+                        <a href="about/bibliotheca.html" class="btn btn-outline">Learn More</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="padding: 6rem 2rem; background: #f8f9fa; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title">Technical Features</h2>
-        <p class="section-subtitle">Integrating modern NLP technology with classical linguistic methods</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-brain" style="font-size: 2.5rem; color: #1a237e; margin-bottom: 1.5rem;"></i>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">NLP Enhanced Analysis</h3>
-                <p>Custom ancient language processing models supporting lemmatization, syntactic parsing, semantic annotation</p>
-            </div>
+    <!-- Featured Content Section -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title">Featured Content</h2>
             
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-chart-line" style="font-size: 2.5rem; color: #1a237e; margin-bottom: 1.5rem;"></i>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Diachronic Visualization</h3>
-                <p>Cross-century tracking of word usage frequency, semantic evolution, grammatical changes</p>
-            </div>
-            
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-search" style="font-size: 2.5rem; color: #1a237e; margin-bottom: 1.5rem;"></i>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Advanced Search</h3>
-                <p>Support for regular expressions, fuzzy queries, grammatical feature searches</p>
-            </div>
-            
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-code" style="font-size: 2.5rem; color: #1a237e; margin-bottom: 1.5rem;"></i>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Open API</h3>
-                <p>RESTful API interfaces supporting academic research and third-party tool integration</p>
+            <div class="featured-grid">
+                <article class="featured-article">
+                    <div class="article-category">Research Update</div>
+                    <h3 class="article-title">New Morphological Parser for Homeric Greek</h3>
+                    <p class="article-excerpt">Our iGreek platform now includes an enhanced parser for Homeric dialect, improving accuracy in participle analysis by 27%.</p>
+                    <a href="#" class="article-link">Read more <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <article class="featured-article">
+                    <div class="article-category">Project Announcement</div>
+                    <h3 class="article-title">Digital Edition of Cicero's Letters</h3>
+                    <p class="article-excerpt">Collaboration with the Palatine Library to digitize and annotate 350+ letters with textual variants.</p>
+                    <a href="#" class="article-link">Read more <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <article class="featured-article">
+                    <div class="article-category">Methodology</div>
+                    <h3 class="article-title">Semantic Mapping in Ancient Lexicography</h3>
+                    <p class="article-excerpt">How iLexicon employs network analysis to visualize semantic relationships in classical vocabulary.</p>
+                    <a href="#" class="article-link">Read more <i class="fas fa-arrow-right"></i></a>
+                </article>
             </div>
         </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('iLogos Platform (English) loaded');
-            
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-monument"></i> iLogos Open
+                    </div>
+                    <p class="footer-tagline">Advancing the study of ancient languages through digital innovation</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Platform</h4>
+                        <a href="igreek.html" class="footer-link">iGreek</a>
+                        <a href="ilatin.html" class="footer-link">iLatin</a>
+                        <a href="ilexicon.html" class="footer-link">iLexicon</a>
+                    </div>
                     
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">About</h4>
+                        <a href="about.html" class="footer-link">Project Overview</a>
+                        <a href="about/ccl.html" class="footer-link">CCL at Chongqing University</a>
+                        <a href="about/bibliotheca.html" class="footer-link">Bibliotheca Translatio Nona</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Connect</h4>
+                        <a href="mailto:contact@ilogosopen.org" class="footer-link">Contact</a>
+                        <a href="https://github.com/ilogos-project" class="footer-link">GitHub</a>
+                        <a href="#" class="footer-link">Newsletter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 iLogos Open Project. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-legal-link">Privacy Policy</a>
+                    <a href="#" class="footer-legal-link">Terms of Use</a>
+                    <a href="#" class="footer-legal-link">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
