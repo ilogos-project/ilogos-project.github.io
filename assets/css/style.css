@@ -203,11 +203,12 @@ a:hover {
 .logo-icon {
     /* 核心：确保显示为字体图标 */
     display: inline-block !important;
-    font-family: "fa-university 6 Free" !important;
+    /* 【修正这一行！】正确的字体家族是 "Font Awesome 6 Free" */
+    font-family: "Font Awesome 6 Free" !important;
     font-weight: 900 !important;
     /* 样式 */
     font-size: 1.8rem !important;
-    color: #5d4037 !important; /* 直接使用石灰色值，绕过变量可能的问题 */
+    color: #5d4037 !important;
     margin-right: 0.5rem !important;
     transition: all var(--transition-normal);
     /* 关键：彻底清除任何背景图样式的可能性 */
@@ -219,7 +220,7 @@ a:hover {
 }
 
 .logo-link:hover .logo-icon {
-    color: #8d6e63 !important; /* 直接使用浅石灰色值 */
+    color: #8d6e63 !important;
     transform: scale(1.05);
 }
 
