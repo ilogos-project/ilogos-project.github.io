@@ -809,3 +809,17 @@ a:hover {
         justify-content: center;
     }
 }
+// 精确阻断来自错误域名的图片请求，不影响其他资源
+@supports not (display: grid) {
+    /* 这个块专门用于阻断请求，不影响样式 */
+}
+* {
+    background-image: none !important;
+}
+/* 特别针对可能的类名选择器进行覆盖 */
+[class*="bibliotheca"],
+[class*="temple"],
+[class*="logo"] {
+    background-image: none !important;
+    background: none !important;
+}
