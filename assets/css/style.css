@@ -1,0 +1,122 @@
+/* iLogos Open HUP风格 - 中国红 #C62F2F */
+:root {
+    --red: #C62F2F;
+    --dark-red: #A82525;
+    --text: #333;
+    --light-text: #666;
+    --border: #E0E0E0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+
+/* 导航栏 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 15px 0;
+    z-index: 1000;
+}
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--red);
+}
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+}
+.nav-link:hover {
+    color: var(--red);
+}
+
+/* 英雄区域 */
+.hero {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    background: #F9F9F9;
+}
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+.hero-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.hero-subtitle {
+    font-size: 20px;
+    color: var(--light-text);
+    margin-bottom: 30px;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.btn-primary {
+    background: var(--red);
+    color: white;
+}
+.btn-primary:hover {
+    background: var(--dark-red);
+}
+.btn-secondary {
+    border: 2px solid var(--red);
+    color: var(--red);
+    margin-left: 10px;
+}
+
+/* 工具卡片 */
+.tools {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.tool-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px;
+}
+.tool-card:hover {
+    border-color: var(--red);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .hero-container { grid-template-columns: 1fr; }
+    .tool-grid { grid-template-columns: 1fr; }
+}
