@@ -52,50 +52,46 @@
 </head>
 <body>
     <!-- 导航栏 (与主站结构完全一致) -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="nav-brand">
-                <a href="../index.html" class="logo-link">
-                    <i class="fas fa-university logo-icon"></i>
-                    <span class="logo-text">iLogos Open</span>
-                </a>
-            </div>
-            <div class="nav-menu">
-                <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                <!-- 重点：此处是您需要在其他页面（如index.html）更新的导航栏代码 -->
-                <!-- 结构如下（此代码仅作示例，请勿直接放在本文件中） -->
-                <!-- 
-                <div class="nav-dropdown">
-                    <a href="../academic.html" class="nav-link">学术机构</a>
-                    <div class="dropdown-content">
-                        <a href="about/ccl.html">重庆大学古典辞书编纂研究中心</a>
-                        <!-- 其他链接... -->
-                    </div>
-                </div>
-                -->
-                <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                <!-- 以下是本页面的导航链接，保持指向正确即可 -->
-                <a href="../igreek.html" class="nav-link">iGreek</a>
-                <a href="../ilatin.html" class="nav-link">iLatin</a>
-                <a href="../ilexicon.html" class="nav-link">iLexicon</a>
-                <div class="nav-dropdown">
-                    <a href="../academic.html" class="nav-link active">学术机构</a>
-                    <div class="dropdown-content">
-                        <!-- 当前页面应高亮显示 -->
-                        <a href="ccl.html" class="active">重庆大学古典辞书编纂研究中心</a>
-                        <!-- 其他机构链接可以放在这里 -->
-                    </div>
-                </div>
-                <a href="../about/bibliotheca.html" class="nav-link">九译馆</a>
-                <a href="../about.html" class="nav-link">关于</a>
-            </div>
-            <div class="nav-lang">
-                <a href="../en/index.html" class="lang-link">EN</a>
-                <span class="lang-separator">|</span>
-                <a href="../index.html" class="lang-link active">中文</a>
-            </div>
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="nav-brand">
+            <a href="../index.html" class="logo-link">
+                <i class="fas fa-university logo-icon"></i>
+                <span class="logo-text">iLogos Open</span>
+            </a>
         </div>
-    </nav>
+
+        <div class="nav-menu">
+            <!-- 工具链接 -->
+            <a href="../igreek.html" class="nav-link">iGreek</a>
+            <a href="../ilatin.html" class="nav-link">iLatin</a>
+            <a href="../ilexicon.html" class="nav-link">iLexicon</a>
+
+            <!-- 学术机构下拉菜单 -->
+            <div class="nav-dropdown">
+                <!-- 关键修改：菜单本身不跳转 -->
+                <a href="javascript:void(0);" class="nav-link active">学术机构</a>
+                <div class="dropdown-content">
+                    <!-- 当前页面（研究中心）高亮 -->
+                    <a href="ccl.html" class="active">重庆大学古典辞书编纂研究中心</a>
+                    <!-- 同级目录的“九译馆”链接 -->
+                    <a href="bibliotheca.html">九译馆</a>
+                </div>
+            </div>
+
+            <!-- 独立的“九译馆”一级导航 -->
+            <a href="../about/bibliotheca.html" class="nav-link">九译馆</a>
+            <!-- “关于”链接 -->
+            <a href="../about.html" class="nav-link">关于</a>
+        </div>
+
+        <div class="nav-lang">
+            <a href="../en/index.html" class="lang-link">EN</a>
+            <span class="lang-separator">|</span>
+            <a href="../index.html" class="lang-link active">中文</a>
+        </div>
+    </div>
+</nav>
 
     <!-- 页面主内容区 -->
     <main class="container" style="padding-top: 100px; padding-bottom: 4rem;">
