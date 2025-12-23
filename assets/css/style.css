@@ -798,3 +798,47 @@ a:hover {
         justify-content: center;
     }
 }
+/* 1. 扩大英雄区域高度为当前的1.5倍 */
+.hero {
+    min-height: 75vh; /* 默认通常是50vh，增大1.5倍 */
+    /* 如果原来用固定像素高度，如 height: 400px; 则改为 height: 600px; */
+    display: flex;
+    align-items: center; /* 垂直居中内容 */
+}
+
+/* 2. 调整容器为垂直列布局，并允许按钮靠底 */
+.container.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 文本靠上，按钮靠下 */
+    flex-grow: 1; /* 填充空间 */
+    width: 100%;
+}
+
+/* 3. 创建新的文本容器，用于标题居中 */
+.hero-text-container {
+    text-align: center; /* 使标题和副标题在其内部居中 */
+    width: 100%;
+    /* 可以添加一些底部间距，与按钮区域分开 */
+    margin-bottom: auto;
+    padding-bottom: 40px;
+}
+
+/* 4. 设置标题字体和换行 */
+.hero-title {
+    font-family: "Microsoft YaHei", "微软雅黑", "DengXian", "等线", "SimHei", sans-serif; /* 等线字体栈 */
+    font-weight: bold; /* 加粗 */
+    text-align: center; /* 确保标题自身也居中 */
+    white-space: nowrap; /* 强制标题保持在同一行，不换行 */
+    overflow: hidden; /* 防止溢出（备用） */
+    text-overflow: ellipsis; /* 如果实在太长，显示省略号（备用） */
+    width: 100%;
+    margin: 0 auto; /* 水平居中 */
+}
+
+/* 5. 将按钮容器居中并固定在底部 */
+.hero-actions {
+    text-align: center; /* 使按钮在容器内水平居中 */
+    width: 100%;
+    padding: 20px 0; /* 给按钮区域一些内边距 */
+}
