@@ -342,52 +342,71 @@ a:hover {
 
 /* ===== 英雄区域 ===== */
 .hero {
-    padding-top: 100px;
-    padding-bottom: var(--spacing-xxl);
-    background-color: var(--color-bg-light);
-    border-bottom: 1px solid var(--color-border);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-container {
+    /* 布局核心：单列三行网格 */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    align-items: center;
-    position: relative;
-    z-index: 1;
+    grid-template-columns: 1fr; /* 单列，解决标题/按钮被限制在右侧列的问题 */
+    grid-template-rows: minmax(20px, 1fr) auto minmax(20px, 1fr); /* 三行：上留白、内容、下留白 */
+    justify-items: center; /* 网格项水平居中 */
+    align-items: start;    /* 网格项从行顶开始 */
+    min-height: 85vh;      /* 区域最小高度 */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
 }
 
+/* 主内容容器：占据中间行，内部用flex实现细节居中 */
+.container.hero-container {
+    grid-column: 1 / -1; /* 横跨所有列（单列） */
+    grid-row: 2;         /* 定位在中间行 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 内部元素（标题）水平居中 */
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* 标题区域 */
 .hero-content {
-    max-width: 600px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px; /* 控制标题与下方按钮的间距 */
 }
 
+/* 标题样式 */
 .hero-title {
-    font-size: 3.5rem;
-    margin-bottom: var(--spacing-md);
-    color: var(--color-text);
+    font-family: "DengXian", "等线", "Microsoft YaHei", sans-serif;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    line-height: 1.2;
 }
-
+/*
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--color-text-light);
     margin-bottom: var(--spacing-lg);
     max-width: 500px;
-}
+}*/
 
 .hero-actions {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+    grid-column: 1 / -1; /* 横跨所有列 */
+    grid-row: 3;         /* 定位在底部行 */
+    justify-self: center; /* 在底部行内水平居中 */
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;   /* 微调按钮在底部行内的垂直位置 */
 }
-
+/*
 .hero-visual {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
+}*/
+/*
 .hero-image {
     width: 100%;
     max-width: 500px;
@@ -401,7 +420,7 @@ a:hover {
     font-size: 1.5rem;
     font-weight: 500;
     box-shadow: var(--shadow-lg);
-}
+}*/
 
 /* ===== 核心工具区域 ===== */
 .tools-section {
