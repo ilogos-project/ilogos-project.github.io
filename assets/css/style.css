@@ -798,52 +798,48 @@ a:hover {
         justify-content: center;
     }
 }
-/* 1. 扩大英雄区域高度，并设置为弹性布局以管理内部空间 */
+/* 1. 调整英雄区域，确保内容能灵活伸展到底部 */
 .hero {
-    min-height: 80vh; /* 高度已扩大，可调整 */
+    min-height: 80vh; /* 可调整，如 600px, 70vh */
     display: flex;
     align-items: center; /* 垂直居中整个容器 */
-    justify-content: center; /* 水平居中 */
-    position: relative; /* 仍作为按钮绝对定位的参考 */
 }
 
-/* 2. 主容器：采用列布局，将内容区域和按钮区域上下分开 */
+/* 2. 主容器：关键！使用弹性列布局并允许内容撑满空间 */
 .container.hero-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* 关键：将子项两端对齐 */
-    align-items: center; /* 水平居中 */
-    width: 100%;
     height: 100%; /* 继承父级高度 */
-    padding: 40px 20px; /* 增加一些内边距，避免内容贴边 */
-    box-sizing: border-box; /* 确保padding不影响总高度计算 */
+    width: 100%;
+    /* 不使用 justify-content，改由内部元素自动填充 */
 }
 
-/* 3. 标题区域：允许自然高度，确保完全显示 */
+/* 3. 标题区域：精确居中，使用等线字体 */
 .hero-content {
-    text-align: center;
+    text-align: center; /* 文字水平居中 */
+    /* 关键：使用自动外边距在垂直方向上也居中 */
+    margin: auto; /* 这个属性在弹性列布局中，会使该元素在剩余空间内垂直水平居中 */
     width: 100%;
-    /* 移除可能限制高度的固定值或margin，让其自然扩展 */
 }
 
-/* 4. 核心：强制标题单行显示，并防止被截断 */
+/* 4. 标题样式：等线字体，确保单行完整显示 */
 .hero-title {
+    font-family: "DengXian", "等线", "Microsoft YaHei", sans-serif; /* 等线字体 */
+    font-weight: bold; /* 通常等线粗体更清晰 */
     white-space: nowrap;
-    overflow: visible; /* 确保溢出内容可见，而非隐藏 */
-    text-overflow: clip; /* 不使用省略号 */
+    overflow: visible;
     text-align: center;
     width: 100%;
-    /* 使用安全的响应式字体，确保完全显示 */
-    font-size: clamp(2rem, 4vw, 3rem); /* 适当调小了最大值，更安全 */
-    margin: 0; /* 清除默认外边距 */
-    padding: 0;
+    /* 安全的响应式字体大小，优先保证完整显示 */
+    font-size: clamp(2rem, 4.5vw, 2.8rem); /* 最大值稍减，确保显示 */
+    margin: 0 0 10px 0; /* 只需底部一点间距 */
 }
 
-/* 5. 按钮区域：固定在容器底部，并确保居中 */
+/* 5. 按钮区域：精确居中并紧贴底部 */
 .hero-actions {
-    /* 移除 position: absolute 和 bottom/left/transform，改用弹性布局控制 */
-    text-align: center;
+    text-align: center; /* 按钮内部水平居中 */
     width: 100%;
-    margin-top: auto; /* 关键：利用弹性布局，自动将自身推至底部 */
-    padding: 20px 0; /* 在按钮上下增加一些空间 */
+    /* 关键：移除上边距，直接将其定位在底部 */
+    margin-top: 0;
+    padding: 30px 0; /* 这个内边距决定按钮离屏幕底部的距离，可调 */
 }
