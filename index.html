@@ -1,125 +1,417 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>iLogos Platform - Language Selection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iLogos Open - Ancient Language Data Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ===== 基础样式 ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #1a237e, #283593);
-            color: white;
-            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* ===== 导航栏 ===== */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
+            padding: 1rem 2rem;
         }
         .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .logo i {
-            color: #e74c3c;
-        }
-        .logo span {
-            color: #3498db;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-        .language-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .lang-btn {
-            padding: 15px 40px;
-            border-radius: 10px;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #8b4513;
             text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon { color: #d2691e; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             transition: all 0.3s;
-            min-width: 180px;
         }
-        .zh-btn {
-            background: white;
-            color: #1a237e;
-            border: 2px solid white;
-        }
-        .en-btn {
-            background: transparent;
+        .nav-links a:hover, .nav-links a.active {
+            background: #8b4513;
             color: white;
-            border: 2px solid white;
         }
-        .lang-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .language-switch {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 2rem;
         }
-        @media (max-width: 600px) {
-            .language-buttons {
-                flex-direction: column;
-            }
-            .lang-btn {
-                min-width: auto;
-                width: 100%;
-                max-width: 300px;
-            }
+        .language-switch a {
+            padding: 0.3rem 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-decoration: none;
+            color: #666;
         }
+        .language-switch a.active {
+            background: #8b4513;
+            color: white;
+            border-color: #8b4513;
+        }
+
+        /* ===== 英雄区域 ===== */
+        .hero {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1535743686920-55e4145369b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #d2691e;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid #d2691e;
+        }
+        .cta-button:hover {
+            background: transparent;
+            color: #d2691e;
+        }
+
+        /* ===== 平台特色 ===== */
+        .features {
+            padding: 4rem 2rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #8b4513;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            border-top: 5px solid #8b4513;
+        }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #8b4513;
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        /* ===== 合作机构样式 ===== */
+        .partner-institutions {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            margin: 3rem auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .partner-institutions h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #8b4513;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        .partner-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+        .institution {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #8b4513;
+            transition: transform 0.3s ease;
+        }
+        .institution:hover { transform: translateY(-5px); }
+        .institution-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 1rem;
+        }
+        .institution-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b4513, #d2691e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        .institution-title h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+        .institution-subtitle {
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 1rem;
+        }
+        .institution-content {
+            line-height: 1.8;
+            color: #555;
+        }
+        .institution-content p { margin-bottom: 1.2rem; }
+        .institution-highlights {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3498db;
+        }
+        .institution-highlights h4 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .partner-institutions { padding: 2rem 1rem; margin: 2rem 1rem; }
+            .institution-header { flex-direction: column; text-align: center; }
+            .institution-logo { margin-right: 0; margin-bottom: 1rem; }
+            .institution { padding: 1.8rem; }
+        }
+
+        /* ===== 页脚 ===== */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .footer-logo { font-size: 2rem; font-weight: bold; color: #f1c40f; }
+        .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+        .footer-links a { color: #ecf0f1; text-decoration: none; }
+        .copyright { margin-top: 2rem; color: #bdc3c7; font-size: 0.9rem; }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="logo">
-        <i class="fas fa-university"></i>
-        <span>i</span>Logos
-    </div>
-    
-    <h1>iLogos Platform</h1>
-    <p>Ancient Language Big Data Platform<br>古代语言大数据平台</p>
-    
-    <div class="language-buttons">
-        <a href="zh/index.html" class="lang-btn zh-btn">
-            中文版<br>
-            <small style="font-size: 0.9rem; opacity: 0.8;">Chinese Version</small>
-        </a>
-        <a href="en/index.html" class="lang-btn en-btn">
-            English Version<br>
-            <small style="font-size: 0.9rem; opacity: 0.8;">英文版本</small>
-        </a>
-    </div>
-    
-    <div style="margin-top: 50px; opacity: 0.7; font-size: 0.9rem;">
-        <p>Select your preferred language to continue<br>选择您偏好的语言继续</p>
-    </div>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-scroll logo-icon"></i>
+                iLogos Open
+            </a>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="ilatin.html">iLatin</a>
+                <a href="igreek.html">iGreek</a>
+                <a href="ilexicon.html">iLexicon</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="language-switch">
+                <a href="/" class="active">EN</a>
+                <a href="/zh/">中文</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1>Ancient Language Data Platform</h1>
+            <p>An open-source platform dedicated to the digital analysis and preservation of classical languages. 
+               Explore linguistic data, dictionaries, and research tools for Latin, Greek, and beyond.</p>
+            <a href="#features" class="cta-button">Explore iLogos</a>
+        </div>
+    </section>
+
+    <!-- 平台特色 -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-language"></i></div>
+                    <h3>Multi-Language Corpus</h3>
+                    <p>Access curated collections of classical texts in Latin, Greek, and other ancient languages with advanced search and analysis tools.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-book"></i></div>
+                    <h3>Dynamic Lexicography</h3>
+                    <p>Interactive dictionaries with morphological analysis, etymology tracing, and cross-language comparisons.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Data Visualization</h3>
+                    <p>Visualize linguistic patterns, word frequency, and grammatical structures through interactive charts and graphs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作机构 -->
+    <section class="partner-institutions container">
+        <h2>Academic Collaboration</h2>
+        <p class="partner-subtitle">Partnering with Leading Research Institutions in Classical Studies</p>
+        
+        <!-- 机构 1 -->
+        <div class="institution">
+            <div class="institution-header">
+                <div class="institution-logo">CCL</div>
+                <div class="institution-title">
+                    <h3>Center for Classical Lexicography (CCL)</h3>
+                    <p class="institution-subtitle">Chongqing University</p>
+                </div>
+            </div>
+            <div class="institution-content">
+                <p>The Center for Classical Lexicography (CCL) at Chongqing University, established in 2019, is China's first specialized research institution dedicated to classical dictionary compilation. It serves as a university-level research platform, bringing together top experts in classical lexicography and philology from both China and abroad.</p>
+                
+                <p>Building upon the profound scholarly traditions of the Sichuan-Chongqing region—including the pioneering work of Yang Xiong's <em>Fangyan</em> (Dialects) from the Western Han and Guo Pu's <em>Erya Zhu</em> (Annotations on the Erya) from the Eastern Jin—the center continues this legacy of linguistic scholarship.</p>
+                
+                <p>With the National Social Science Foundation's major project "Compilation of the <em>Classical Latin-Chinese Dictionary</em>" as its engine, CCL actively develops two main research directions: "Chinese Classical Lexicography" and "Western Classical Lexicography." It is currently compiling groundbreaking dictionaries such as the <em>Homer Lexicon</em>, <em>Plato Dictionary</em>, <em>Aristotle Dictionary</em>, and <em>Cicero Dictionary</em>, aiming to fill academic gaps both domestically and internationally.</p>
+                
+                <div class="institution-highlights">
+                    <h4>Key Research Directions</h4>
+                    <p>• Compilation of Classical Latin-Chinese and Ancient Greek-Chinese Dictionaries</p>
+                    <p>• Specialized Author Lexicons (Homer, Plato, Aristotle, Cicero)</p>
+                    <p>• Digital Humanities and Computational Lexicography</p>
+                    <p>• Historical and Comparative Philology</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 机构 2 -->
+        <div class="institution">
+            <div class="institution-header">
+                <div class="institution-logo">BTN</div>
+                <div class="institution-title">
+                    <h3>Bibliotheca Translatio Nona (BTN)</h3>
+                    <p class="institution-subtitle">The "Nine Translations" Library</p>
+                </div>
+            </div>
+            <div class="institution-content">
+                <p>The name "Bibliotheca Translatio Nona" draws inspiration from the term "Nine Translations" (九译), which historically refers to "distant lands reached through multiple translations" and to official translators in the Han dynasty. Following the scholarly tradition of the Sichuan-Chongqing region exemplified by the "Six Translations Sage" Liao Ping and his <em>Liuyi Guan Congshu</em> (Six Translations Library Collection), BTN continues this legacy of transformative scholarship.</p>
+                
+                <p>BTN is dedicated to the translation and publication of ancient Greek and Latin literature. It focuses on two main tasks: translating classical works that have not yet been rendered into Chinese, and meticulously retranslating existing Chinese translations that require refinement. The core belief is that the foundational texts of Western civilization deserve multiple, reliable Chinese translations.</p>
+                
+                <p>As the Tang Emperor Taizong stated, "Taking history as a mirror, one can understand the rise and fall of dynasties." In this spirit, BTN aims to provide the Chinese-speaking world with a clear "mirror" to ancient Greece and Rome, facilitating a deeper understanding of Western intellectual origins and enabling meaningful cultural dialogue.</p>
+                
+                <div class="institution-highlights">
+                    <h4>Publication Focus</h4>
+                    <p>• First Chinese translations of key untranslated Greek and Latin texts</p>
+                    <p>• Critical retranslations of existing Chinese editions</p>
+                    <p>• Scholarly bilingual editions with commentary</p>
+                    <p>• Collaborative projects with international classical publishers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">iLogos Open</div>
+            <p>Open-source platform for classical language research and digital humanities.</p>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="https://github.com/ilogos-project">GitHub</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/privacy.html">Privacy</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 iLogos Open Project. This website is hosted on GitHub Pages.
+            </div>
+        </div>
+    </footer>
 
     <script>
+        // 简单的交互脚本
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('iLogos Language Selector loaded');
+            // 为合作机构卡片添加点击效果
+            const institutions = document.querySelectorAll('.institution');
+            institutions.forEach(inst => {
+                inst.addEventListener('click', function() {
+                    this.classList.toggle('expanded');
+                });
+            });
             
-            // 自动语言检测
-            const userLang = navigator.language || navigator.userLanguage;
-            console.log('Browser language detected:', userLang);
-            
-            // 5秒后自动跳转
-            setTimeout(() => {
-                if (userLang.startsWith('zh')) {
-                    window.location.href = 'zh/index.html';
-                } else {
-                    window.location.href = 'en/index.html';
-                }
-            }, 5000);
+            console.log('iLogos Open platform loaded successfully.');
         });
     </script>
 </body>
