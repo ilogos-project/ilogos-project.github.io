@@ -341,38 +341,37 @@ a:hover {
 }
 
 /* ===== 英雄区域 ===== */
+/* ===== 基于现有Flex布局的修正方案 ===== */
+
+/* 1. 确保英雄区域是垂直方向的flex容器，并扩大高度 */
 .hero {
-    /* 布局核心：单列三行网格 */
-    display: grid;
-    grid-template-columns: 1fr; /* 单列，解决标题/按钮被限制在右侧列的问题 */
-    grid-template-rows: minmax(20px, 1fr) auto minmax(20px, 1fr); /* 三行：上留白、内容、下留白 */
-    justify-items: center; /* 网格项水平居中 */
-    align-items: start;    /* 网格项从行顶开始 */
-    min-height: 85vh;      /* 区域最小高度 */
-    width: 100%;
-    box-sizing: border-box;
+    /* 关键：不再尝试改为grid，而是沿用并强化现有的flex属性 */
+    flex-direction: column !important;
+    justify-content: space-between !important; /* 头部、中部、底部空间分布 */
+    align-items: center !important; /* 子项水平居中 */
+    min-height: 85vh !important;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
-/* 主内容容器：占据中间行，内部用flex实现细节居中 */
+/* 2. 主容器：作为flex子项，使其内容可居中 */
 .container.hero-container {
-    grid-column: 1 / -1; /* 横跨所有列（单列） */
-    grid-row: 2;         /* 定位在中间行 */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 内部元素（标题）水平居中 */
+    /* 关键：在flex父容器下，用margin实现垂直居中 */
+    margin: auto 0 !important; /* 上下auto在column布局中可实现垂直居中 */
     width: 100%;
     max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 内部内容水平居中 */
 }
 
-/* 标题区域 */
+/* 3. 标题区域：处理单行和居中 */
 .hero-content {
     text-align: center;
     width: 100%;
-    margin-bottom: 40px; /* 控制标题与下方按钮的间距 */
 }
 
-/* 标题样式 */
+/* 4. 标题样式：强制单行，等线字体 */
 .hero-title {
     font-family: "DengXian", "等线", "Microsoft YaHei", sans-serif;
     font-weight: bold;
@@ -384,43 +383,18 @@ a:hover {
     font-size: clamp(2.2rem, 5vw, 3rem);
     line-height: 1.2;
 }
-/*
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-lg);
-    max-width: 500px;
-}*/
 
+/* 5. 按钮区域：作为另一个flex子项，将其固定在底部 */
 .hero-actions {
-    grid-column: 1 / -1; /* 横跨所有列 */
-    grid-row: 3;         /* 定位在底部行 */
-    justify-self: center; /* 在底部行内水平居中 */
+    /* 关键：在 .hero 的 space-between 布局中，此项目会自然靠底 */
     text-align: center;
     width: 100%;
-    padding-top: 20px;   /* 微调按钮在底部行内的垂直位置 */
+    padding-bottom: 40px; /* 控制按钮离底部的具体距离 */
+    /* 确保自身内部按钮居中 */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 控制两个按钮之间的间距 */
 }
-/*
-.hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}*/
-/*
-.hero-image {
-    width: 100%;
-    max-width: 500px;
-    height: 350px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: var(--radius-lg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 500;
-    box-shadow: var(--shadow-lg);
-}*/
 
 /* ===== 核心工具区域 ===== */
 .tools-section {
