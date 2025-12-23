@@ -817,3 +817,11 @@ a:hover {
         justify-content: center;
     }
 }
+/* 强制覆盖任何导致 .hero 变为 flex 的规则 */
+header.hero {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: minmax(20px, 1fr) auto minmax(20px, 1fr) !important;
+    justify-items: center !important;
+    align-items: start !important;
+}
