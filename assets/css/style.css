@@ -867,3 +867,27 @@ a:hover {
     display: block !important; /* 确保它是块级元素，便于居中 */
     width: 100% !important; /* 占据全宽，使文本居中生效 */
 }
+/* 方案一：如果布局是CSS Grid */
+.hero-content {
+    grid-column: 1 / -1 !important; /* 关键：强制横跨从第一列到最后一列 */
+    justify-self: center !important; /* 在网格区域内水平居中 */
+    text-align: center !important;
+}
+
+/* 方案二：如果布局是Flexbox，或作为Grid的补充 */
+.hero-content {
+    width: 100% !important;        /* 占满所有可用宽度 */
+    flex-grow: 1 !important;       /* 如果有flex父级，则拉伸 */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* 水平居中其子项（标题） */
+    justify-content: center !important; /* 垂直居中（备用） */
+}
+
+/* 直接针对标题本身的终极保障 */
+.hero-title {
+    text-align: center !important;
+    margin: 0 auto !important;     /* 标准水平居中方法 */
+    display: block !important;
+    width: 100% !important;
+}
