@@ -798,84 +798,52 @@ a:hover {
         justify-content: center;
     }
 }
-/* 1. 扩大英雄区域高度为当前的1.5倍 */
+/* 1. 扩大英雄区域高度，并设置为弹性布局以管理内部空间 */
 .hero {
-    min-height: 75vh; /* 默认通常是50vh，增大1.5倍 */
-    /* 如果原来用固定像素高度，如 height: 400px; 则改为 height: 600px; */
+    min-height: 80vh; /* 高度已扩大，可调整 */
     display: flex;
-    align-items: center; /* 垂直居中内容 */
+    align-items: center; /* 垂直居中整个容器 */
+    justify-content: center; /* 水平居中 */
+    position: relative; /* 仍作为按钮绝对定位的参考 */
 }
 
-/* 2. 调整容器为垂直列布局，并允许按钮靠底 */
+/* 2. 主容器：采用列布局，将内容区域和按钮区域上下分开 */
 .container.hero-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* 文本靠上，按钮靠下 */
-    flex-grow: 1; /* 填充空间 */
+    justify-content: space-between; /* 关键：将子项两端对齐 */
+    align-items: center; /* 水平居中 */
     width: 100%;
+    height: 100%; /* 继承父级高度 */
+    padding: 40px 20px; /* 增加一些内边距，避免内容贴边 */
+    box-sizing: border-box; /* 确保padding不影响总高度计算 */
 }
 
-/* 3. 创建新的文本容器，用于标题居中 */
-.hero-text-container {
-    text-align: center; /* 使标题和副标题在其内部居中 */
-    width: 100%;
-    /* 可以添加一些底部间距，与按钮区域分开 */
-    margin-bottom: auto;
-    padding-bottom: 40px;
-}
-
-/* 4. 设置标题字体和换行 */
-.hero-title {
-    font-family: "Microsoft YaHei", "微软雅黑", "DengXian", "等线", "SimHei", sans-serif; /* 等线字体栈 */
-    font-weight: bold; /* 加粗 */
-    text-align: center; /* 确保标题自身也居中 */
-    white-space: nowrap; /* 强制标题保持在同一行，不换行 */
-    overflow: hidden; /* 防止溢出（备用） */
-    text-overflow: ellipsis; /* 如果实在太长，显示省略号（备用） */
-    width: 100%;
-    margin: 0 auto; /* 水平居中 */
-}
-
-/* 5. 将按钮容器居中并固定在底部 */
-.hero-actions {
-    text-align: center; /* 使按钮在容器内水平居中 */
-    width: 100%;
-    padding: 20px 0; /* 给按钮区域一些内边距 */
-}
-/* 1. 扩大英雄区域高度，并设置为定位参考 */
-.hero {
-    min-height: 80vh; /* 调整为目前的约1.5倍，可自由修改数值如 600px, 70vh */
-    position: relative; /* 关键：使内部绝对定位的按钮以此区域为基准 */
-    display: flex;
-    align-items: center; /* 垂直居中 .hero-content 里的标题 */
-}
-
-/* 2. 调整容器，使其撑满父级高度 */
-.container.hero-container {
-    width: 100%;
-    height: 100%; /* 继承 .hero 的高度 */
-    display: flex;
-    flex-direction: column;
-}
-
-/* 3. 标题区域保持默认（或微调），确保标题单行 */
+/* 3. 标题区域：允许自然高度，确保完全显示 */
 .hero-content {
-    /* 这个区域会自动被 align-items: center 推到垂直中部 */
-    text-align: center; /* 确保标题在其内部水平居中 */
-}
-
-.hero-title {
-    white-space: nowrap; /* 核心：强制标题在同一行显示 */
-    /* 可选：防止在超小屏幕溢出，使用响应式字体 */
-    font-size: clamp(2rem, 5vw, 3.5rem);
-}
-
-/* 4. 将按钮容器绝对定位在英雄区域的底部 */
-.hero-actions {
-    position: absolute;
-    bottom: 40px; /* 控制按钮离底部的距离，可调 */
-    left: 50%;
-    transform: translateX(-50%); /* 实现水平居中 */
     text-align: center;
-    width: auto;
+    width: 100%;
+    /* 移除可能限制高度的固定值或margin，让其自然扩展 */
+}
+
+/* 4. 核心：强制标题单行显示，并防止被截断 */
+.hero-title {
+    white-space: nowrap;
+    overflow: visible; /* 确保溢出内容可见，而非隐藏 */
+    text-overflow: clip; /* 不使用省略号 */
+    text-align: center;
+    width: 100%;
+    /* 使用安全的响应式字体，确保完全显示 */
+    font-size: clamp(2rem, 4vw, 3rem); /* 适当调小了最大值，更安全 */
+    margin: 0; /* 清除默认外边距 */
+    padding: 0;
+}
+
+/* 5. 按钮区域：固定在容器底部，并确保居中 */
+.hero-actions {
+    /* 移除 position: absolute 和 bottom/left/transform，改用弹性布局控制 */
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* 关键：利用弹性布局，自动将自身推至底部 */
+    padding: 20px 0; /* 在按钮上下增加一些空间 */
 }
