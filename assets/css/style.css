@@ -857,3 +857,13 @@ a:hover {
     margin: 0 auto;
     padding: 0;
 }
+/* 强制修正标题居中问题 */
+.hero-content,
+.hero-title {
+    text-align: center !important; /* 强制水平居中 */
+    justify-content: center !important; /* 如果它是flex/grid子项，也强制居中 */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important; /* 确保它是块级元素，便于居中 */
+    width: 100% !important; /* 占据全宽，使文本居中生效 */
+}
