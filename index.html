@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iLogos Open - Ancient Language Data Platform</title>
+<<<<<<< HEAD
+    <title>iLogos Open | 古代语言大数据平台</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+=======
+    <title>iLogos Open - 古代语言大数据平台</title>
+>>>>>>> dc46d5a (“修复路径并添加九译馆Logo图片文件”)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+<<<<<<< HEAD
+        :root {
+            --font-serif: 'Noto Serif SC', serif;
+            --font-sans: 'Noto Sans SC', sans-serif;
+        }
+=======
         /* ===== 基础样式 ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', 'Microsoft YaHei', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
             color: #333;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
@@ -85,7 +97,7 @@
             margin-bottom: 3rem;
         }
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
         .hero p {
@@ -117,7 +129,7 @@
         }
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 3rem;
             color: #2c3e50;
             position: relative;
@@ -168,7 +180,7 @@
         }
         .partner-institutions h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
             color: #2c3e50;
             border-bottom: 3px solid #8b4513;
@@ -178,7 +190,7 @@
         .partner-subtitle {
             text-align: center;
             color: #7f8c8d;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 3rem;
             font-style: italic;
         }
@@ -214,7 +226,7 @@
             flex-shrink: 0;
         }
         .institution-title h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #2c3e50;
             margin-bottom: 0.3rem;
         }
@@ -267,26 +279,167 @@
         .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
         .footer-links a { color: #ecf0f1; text-decoration: none; }
         .copyright { margin-top: 2rem; color: #bdc3c7; font-size: 0.9rem; }
+>>>>>>> dc46d5a (“修复路径并添加九译馆Logo图片文件”)
     </style>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
+<<<<<<< HEAD
+
+    <!-- 顶部导航栏 (用于首页 index.html) -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="nav-brand">
+            <!-- 首页的Logo链接到自身 -->
+            <a href="index.html" class="logo-link">
+                <i class="fas fa-university logo-icon"></i>
+                <span class="logo-text">iLogos Open</span>
+            </a>
+        </div>
+
+        <div class="nav-menu">
+            <!-- 工具链接：指向根目录的同级文件 -->
+            <a href="igreek.html" class="nav-link">iGreek</a>
+            <a href="ilatin.html" class="nav-link">iLatin</a>
+            <a href="ilexicon.html" class="nav-link">iLexicon</a>
+
+            <!-- 学术机构下拉菜单 -->
+            <div class="nav-dropdown">
+                <!-- 菜单本身不跳转 -->
+                <a href="javascript:void(0);" class="nav-link">学术机构</a>
+                <div class="dropdown-content">
+                    <!-- 链接指向 about/ 子目录 -->
+                    <a href="about/ccl.html">重庆大学古典辞书编纂研究中心</a>
+                </div>
+            </div>
+
+            <!-- 独立的“九译馆”一级导航 -->
+            <a href="about/bibliotheca.html" class="nav-link">九译馆</a>
+            <!-- “关于”链接 -->
+            <a href="about.html" class="nav-link">关于</a>
+        </div>
+
+        <div class="nav-lang">
+            <a href="en/index.html" class="lang-link">EN</a>
+            <span class="lang-separator">|</span>
+            <!-- 当前是中文首页，自身高亮 -->
+            <a href="index.html" class="lang-link active">中文</a>
+        </div>
+    </div>
+</nav>
+
+    <!-- 英雄区域 -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">古代语言，现代学术</h1>
+                <p class="hero-subtitle">结合文献学精确性与前沿数据技术的古典语言研究顶级数字平台。</p>
+                <div class="hero-actions">
+                    <a href="#tools" class="btn btn-primary">探索工具</a>
+                    <a href="about.html" class="btn btn-secondary">了解更多</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div>学术视觉图</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 核心工具展示 -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h2 class="section-title">核心研究工具</h2>
+            <p class="section-subtitle">专为深度古典语言分析打造的专业平台</p>
+            
+            <div class="tools-grid">
+                <!-- iGreek 卡片 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <h3 class="tool-title">iGreek</h3>
+                    <p class="tool-description">全面的希腊语语料库，包含形态分析、句法解析与文本校勘工具。</p>
+                    <div class="tool-actions">
+                        <a href="../en/igreek.html" class="tool-link">探索 iGreek <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- iLatin 卡片 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="tool-title">iLatin</h3>
+                    <p class="tool-description">高级拉丁语文本数据库，包含词汇分析、历史语言学和手稿研究资源。</p>
+                    <div class="tool-actions">
+                        <a href="../en/ilatin.html" class="tool-link">探索 iLatin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- iLexicon 卡片 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="tool-title">iLexicon</h3>
+                    <p class="tool-description">动态词典平台，提供跨语言参考、词源树和语义映射功能。</p>
+                    <div class="tool-actions">
+                        <a href="../en/ilexicon.html" class="tool-link">探索 iLexicon <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作机构展示 -->
+    <section class="institutions-section">
+        <div class="container">
+            <h2 class="section-title">合作机构</h2>
+            <p class="section-subtitle">与顶尖学术中心合作，追求文献学卓越</p>
+            
+            <div class="institutions-grid">
+                <!-- CCL 卡片 -->
+                <div class="institution-card">
+                    <div class="institution-logo-placeholder">
+                        <div>CCL</div>
+                    </div>
+                    <h3 class="institution-name">重庆大学古典辞书编纂研究中心</h3>
+                    <p class="institution-brief">致力于古典辞书数字化编纂与跨文化比较的领先研究中心。</p>
+                    <div class="institution-actions">
+                        <a href="about/ccl.html" class="btn btn-outline">了解更多</a>
+                    </div>
+                </div>
+                
+                <!-- 九译馆卡片 -->
+                <div class="institution-card">
+                    <div class="institution-logo">
+                        <img src="assets/images/logos/bibliotheca_logo.png" alt="九译馆 Logo">
+                    </div>
+                    <h3 class="institution-name">九译馆</h3>
+                    <p class="institution-brief">致力于跨文化古典文本翻译与阐释的学术共同体。</p>
+                    <div class="institution-actions">
+                        <a href="about/bibliotheca.html" class="btn btn-outline">了解更多</a>
+                    </div>
+=======
     <!-- 导航栏 -->
     <header>
         <nav class="container">
-            <a href="/" class="logo">
+            <a href="/zh/" class="logo">
                 <i class="fas fa-scroll logo-icon"></i>
                 iLogos Open
             </a>
             <div class="nav-links">
-                <a href="/" class="active">Home</a>
+                <a href="/zh/" class="active">首页</a>
                 <a href="ilatin.html">iLatin</a>
                 <a href="igreek.html">iGreek</a>
                 <a href="ilexicon.html">iLexicon</a>
-                <a href="about.html">About</a>
+                <a href="about.html">关于</a>
             </div>
             <div class="language-switch">
-                <a href="/" class="active">EN</a>
-                <a href="/zh/">中文</a>
+                <a href="/">EN</a>
+                <a href="/zh/" class="active">中文</a>
             </div>
         </nav>
     </header>
@@ -294,32 +447,31 @@
     <!-- 英雄区域 -->
     <section class="hero">
         <div class="container">
-            <h1>Ancient Language Data Platform</h1>
-            <p>An open-source platform dedicated to the digital analysis and preservation of classical languages. 
-               Explore linguistic data, dictionaries, and research tools for Latin, Greek, and beyond.</p>
-            <a href="#features" class="cta-button">Explore iLogos</a>
+            <h1>古代语言大数据平台</h1>
+            <p>一个致力于古典语言数字化分析与保护的开源平台。探索拉丁语、希腊语等古代语言的语料数据、词典与研究工具。</p>
+            <a href="#features" class="cta-button">探索 iLogos</a>
         </div>
     </section>
 
     <!-- 平台特色 -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Platform Features</h2>
+            <h2 class="section-title">平台特色</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-language"></i></div>
-                    <h3>Multi-Language Corpus</h3>
-                    <p>Access curated collections of classical texts in Latin, Greek, and other ancient languages with advanced search and analysis tools.</p>
+                    <h3>多语言语料库</h3>
+                    <p>访问精心整理的拉丁语、希腊语等古典文本，提供高级搜索与分析功能。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-book"></i></div>
-                    <h3>Dynamic Lexicography</h3>
-                    <p>Interactive dictionaries with morphological analysis, etymology tracing, and cross-language comparisons.</p>
+                    <h3>动态词典编纂</h3>
+                    <p>交互式词典，包含词形分析、词源追溯与跨语言对比功能。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
-                    <h3>Data Visualization</h3>
-                    <p>Visualize linguistic patterns, word frequency, and grammatical structures through interactive charts and graphs.</p>
+                    <h3>数据可视化</h3>
+                    <p>通过交互式图表，直观展示语言模式、词汇频率与语法结构。</p>
                 </div>
             </div>
         </div>
@@ -327,31 +479,31 @@
 
     <!-- 合作机构 -->
     <section class="partner-institutions container">
-        <h2>Academic Collaboration</h2>
-        <p class="partner-subtitle">Partnering with Leading Research Institutions in Classical Studies</p>
+        <h2>学术合作</h2>
+        <p class="partner-subtitle">与古典学领域的顶尖研究机构合作</p>
         
         <!-- 机构 1 -->
         <div class="institution">
             <div class="institution-header">
-                <div class="institution-logo">CCL</div>
+                <div class="institution-logo">辞书</div>
                 <div class="institution-title">
-                    <h3>Center for Classical Lexicography (CCL)</h3>
-                    <p class="institution-subtitle">Chongqing University</p>
+                    <h3>重庆大学古典辞书编纂研究中心 (CCL)</h3>
+                    <p class="institution-subtitle">Center for Classical Lexicography, Chongqing University</p>
                 </div>
             </div>
             <div class="institution-content">
-                <p>The Center for Classical Lexicography (CCL) at Chongqing University, established in 2019, is China's first specialized research institution dedicated to classical dictionary compilation. It serves as a university-level research platform, bringing together top experts in classical lexicography and philology from both China and abroad.</p>
+                <p>重庆大学古典辞书编纂研究中心成立于2019年，是我国首家古典辞书编纂研究专门机构，2020年入选重庆大学校级科研平台。中心聘请国内外古典辞书编纂和古典语文学一流专家组成学术委员会，整合重庆大学及在渝高校学术力量，致力于推动古典辞书研究。</p>
                 
-                <p>Building upon the profound scholarly traditions of the Sichuan-Chongqing region—including the pioneering work of Yang Xiong's <em>Fangyan</em> (Dialects) from the Western Han and Guo Pu's <em>Erya Zhu</em> (Annotations on the Erya) from the Eastern Jin—the center continues this legacy of linguistic scholarship.</p>
+                <p>秉承川渝地区深厚的古典辞书研究传统——从西汉扬雄仿《尔雅》体例所撰中国首部方言辞书《方言》，到东晋郭璞在乐山尔雅台成就首部《尔雅注》——中心接续了这一语言学研究的悠久脉络。</p>
                 
-                <p>With the National Social Science Foundation's major project "Compilation of the <em>Classical Latin-Chinese Dictionary</em>" as its engine, CCL actively develops two main research directions: "Chinese Classical Lexicography" and "Western Classical Lexicography." It is currently compiling groundbreaking dictionaries such as the <em>Homer Lexicon</em>, <em>Plato Dictionary</em>, <em>Aristotle Dictionary</em>, and <em>Cicero Dictionary</em>, aiming to fill academic gaps both domestically and internationally.</p>
+                <p>以国家社科基金重大项目"《古典拉丁语汉语大辞典》编纂"为引擎，中心积极开拓"中国古典辞书编纂研究"、"西方古典辞书编纂研究"两大方向，并推进《荷马辞典》《柏拉图辞典》《亚里士多德辞典》《西塞罗辞典》等西方专人（专书）辞书的编纂，力求填补国内外学术空白。</p>
                 
                 <div class="institution-highlights">
-                    <h4>Key Research Directions</h4>
-                    <p>• Compilation of Classical Latin-Chinese and Ancient Greek-Chinese Dictionaries</p>
-                    <p>• Specialized Author Lexicons (Homer, Plato, Aristotle, Cicero)</p>
-                    <p>• Digital Humanities and Computational Lexicography</p>
-                    <p>• Historical and Comparative Philology</p>
+                    <h4>主要研究方向</h4>
+                    <p>• 《古典拉丁语汉语大辞典》及《古希腊语汉语大辞典》编纂</p>
+                    <p>• 西方古典专人辞书（荷马、柏拉图、亚里士多德、西塞罗）编纂</p>
+                    <p>• 数字人文与计算词典学</p>
+                    <p>• 历史与比较语文学</p>
                 </div>
             </div>
         </div>
@@ -359,60 +511,118 @@
         <!-- 机构 2 -->
         <div class="institution">
             <div class="institution-header">
-                <div class="institution-logo">BTN</div>
+                <div class="institution-logo">九译</div>
                 <div class="institution-title">
-                    <h3>Bibliotheca Translatio Nona (BTN)</h3>
-                    <p class="institution-subtitle">The "Nine Translations" Library</p>
+                    <h3>九译馆 (BTN)</h3>
+                    <p class="institution-subtitle">Bibliotheca Translatio Nona</p>
                 </div>
             </div>
             <div class="institution-content">
-                <p>The name "Bibliotheca Translatio Nona" draws inspiration from the term "Nine Translations" (九译), which historically refers to "distant lands reached through multiple translations" and to official translators in the Han dynasty. Following the scholarly tradition of the Sichuan-Chongqing region exemplified by the "Six Translations Sage" Liao Ping and his <em>Liuyi Guan Congshu</em> (Six Translations Library Collection), BTN continues this legacy of transformative scholarship.</p>
+                <p>"九译馆"之名，取自"九译"一词的两种古义：一为"辗转翻译"，指代远方；二为汉代"通译官"的官职。效法近代川学"六译圣人"廖平及其《六译馆丛书》，九译馆承继了这一学术转化传统。</p>
                 
-                <p>BTN is dedicated to the translation and publication of ancient Greek and Latin literature. It focuses on two main tasks: translating classical works that have not yet been rendered into Chinese, and meticulously retranslating existing Chinese translations that require refinement. The core belief is that the foundational texts of Western civilization deserve multiple, reliable Chinese translations.</p>
+                <p>九译馆致力于古希腊罗马文献的汉译与出版，主要着手于两项工作：翻译尚未有汉译的西学古典著作，以及重新翻译已有汉译但未臻完善的古典名著。其核心理念是：为西方文明奠基的古代文献，理应有多种可靠的汉语译本。</p>
                 
-                <p>As the Tang Emperor Taizong stated, "Taking history as a mirror, one can understand the rise and fall of dynasties." In this spirit, BTN aims to provide the Chinese-speaking world with a clear "mirror" to ancient Greece and Rome, facilitating a deeper understanding of Western intellectual origins and enabling meaningful cultural dialogue.</p>
+                <p>唐太宗曰："以古为鉴，可知兴替。"九译馆正是希望为中文世界提供一面清晰映照古希腊罗马的"古鉴"，以深入理解西方文明之源，促成更有深度的文明对话。</p>
                 
                 <div class="institution-highlights">
-                    <h4>Publication Focus</h4>
-                    <p>• First Chinese translations of key untranslated Greek and Latin texts</p>
-                    <p>• Critical retranslations of existing Chinese editions</p>
-                    <p>• Scholarly bilingual editions with commentary</p>
-                    <p>• Collaborative projects with international classical publishers</p>
+                    <h4>出版重点</h4>
+                    <p>• 关键未译希腊、拉丁文献的首个中文译本</p>
+                    <p>• 对现有中文译本的精校重译</p>
+                    <p>• 带注释的学术双语版本</p>
+                    <p>• 与国际古典出版机构的合作项目</p>
+>>>>>>> dc46d5a (“修复路径并添加九译馆Logo图片文件”)
                 </div>
             </div>
         </div>
     </section>
 
+<<<<<<< HEAD
+    <!-- 精选内容区域 -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title">精选内容</h2>
+            
+            <div class="featured-grid">
+                <article class="featured-article">
+                    <div class="article-category">研究更新</div>
+                    <h3 class="article-title">荷马希腊语新形态分析器</h3>
+                    <p class="article-excerpt">iGreek平台现包含增强版荷马方言分析器，分词分析准确率提升27%。</p>
+                    <a href="#" class="article-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <article class="featured-article">
+                    <div class="article-category">项目公告</div>
+                    <h3 class="article-title">西塞罗书信数字版</h3>
+                    <p class="article-excerpt">与帕拉蒂尼图书馆合作，数字化并校注350+封书信及其文本变体。</p>
+                    <a href="#" class="article-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <article class="featured-article">
+                    <div class="article-category">方法论</div>
+                    <h3 class="article-title">古代辞书编纂中的语义映射</h3>
+                    <p class="article-excerpt">iLexicon如何运用网络分析可视化古典词汇的语义关系。</p>
+                    <a href="#" class="article-link">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-university logo-icon"></i>
+                        iLogos Open
+                    </div>
+                    <p class="footer-tagline">通过数字创新推动古代语言研究</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">平台</h4>
+                        <a href="../en/igreek.html" class="footer-link">iGreek</a>
+                        <a href="../en/ilatin.html" class="footer-link">iLatin</a>
+                        <a href="../en/ilexicon.html" class="footer-link">iLexicon</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-heading">关于</h4>
+                        <a href="about.html" class="footer-link">项目概述</a>
+                        <a href="about/ccl.html" class="footer-link">重庆大学古典辞书编纂研究中心</a>
+                        <a href="about/bibliotheca.html" class="footer-link">九译馆</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-heading">联系</h4>
+                        <a href="mailto:contact@ilogosopen.org" class="footer-link">联系我们</a>
+                        <a href="https://github.com/ilogos-project" class="footer-link">GitHub</a>
+                        <a href="#" class="footer-link">新闻通讯</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 iLogos Open 项目。保留所有权利。
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-legal-link">隐私政策</a>
+                    <a href="#" class="footer-legal-link">使用条款</a>
+                    <a href="#" class="footer-legal-link">无障碍访问</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+=======
     <!-- 页脚 -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">iLogos Open</div>
-            <p>Open-source platform for classical language research and digital humanities.</p>
+            <p>面向古典语言研究与数字人文的开源平台。</p>
             <div class="footer-links">
-                <a href="/about.html">About</a>
-                <a href="https://github.com/ilogos-project">GitHub</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/privacy.html">Privacy</a>
-            </div>
-            <div class="copyright">
-                &copy; 2025 iLogos Open Project. This website is hosted on GitHub Pages.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // 简单的交互脚本
-        document.addEventListener('DOMContentLoaded', function() {
-            // 为合作机构卡片添加点击效果
-            const institutions = document.querySelectorAll('.institution');
-            institutions.forEach(inst => {
-                inst.addEventListener('click', function() {
-                    this.classList.toggle('expanded');
-                });
-            });
-            
-            console.log('iLogos Open platform loaded successfully.');
-        });
-    </script>
-</body>
-</html>
+                <a href="/zh/about
+>>>>>>> dc46d5a (“修复路径并添加九译馆Logo图片文件”)
