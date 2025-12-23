@@ -201,16 +201,15 @@ a:hover {
 
 /* 🏛️ 更新Logo图标样式 - 使用fa-university和石灰色 */
 .logo-icon {
-    /* 核心：确保显示为字体图标 */
-    display: inline-block !important;
-    /* 【修正这一行！】正确的字体家族是 "Font Awesome 6 Free" */
-    font-family: "Font Awesome 6 Free" !important;
-    font-weight: 900 !important;
-    /* 样式 */
-    font-size: 1.8rem !important;
-    color: #5d4037 !important;
-    margin-right: 0.5rem !important;
+    display: inline-block; /* 建议也移除这些 !important */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--color-primary); /* ✅ 已修改 */
+    margin-right: 0.5rem;
     transition: all var(--transition-normal);
+    /* ... 其他属性保持不变 ... */
+}
     /* 关键：彻底清除任何背景图样式的可能性 */
     background: none !important;
     background-image: none !important;
@@ -220,7 +219,7 @@ a:hover {
 }
 
 .logo-link:hover .logo-icon {
-    color: #8d6e63 !important;
+    color: var(--color-primary-dark); /* 使用你定义的深红色 #A82525 */
     transform: scale(1.05);
 }
 
@@ -240,12 +239,7 @@ a:hover {
     font-family: var(--font-serif);
     font-size: 1.5rem;
     font-weight: 700;
-}
-
-/* 将Logo颜色绑定到中国红主色 */
-.logo-icon,
-.logo-text {
-    color: var(--color-primary); /* 绑定到 #C62F2F */
+    color: var(--color-primary); /* ✅ 确保有这一行 */
 }
 
 .nav-menu {
