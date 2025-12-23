@@ -842,3 +842,40 @@ a:hover {
     width: 100%;
     padding: 20px 0; /* 给按钮区域一些内边距 */
 }
+/* 1. 扩大英雄区域高度，并设置为定位参考 */
+.hero {
+    min-height: 80vh; /* 调整为目前的约1.5倍，可自由修改数值如 600px, 70vh */
+    position: relative; /* 关键：使内部绝对定位的按钮以此区域为基准 */
+    display: flex;
+    align-items: center; /* 垂直居中 .hero-content 里的标题 */
+}
+
+/* 2. 调整容器，使其撑满父级高度 */
+.container.hero-container {
+    width: 100%;
+    height: 100%; /* 继承 .hero 的高度 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. 标题区域保持默认（或微调），确保标题单行 */
+.hero-content {
+    /* 这个区域会自动被 align-items: center 推到垂直中部 */
+    text-align: center; /* 确保标题在其内部水平居中 */
+}
+
+.hero-title {
+    white-space: nowrap; /* 核心：强制标题在同一行显示 */
+    /* 可选：防止在超小屏幕溢出，使用响应式字体 */
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* 4. 将按钮容器绝对定位在英雄区域的底部 */
+.hero-actions {
+    position: absolute;
+    bottom: 40px; /* 控制按钮离底部的距离，可调 */
+    left: 50%;
+    transform: translateX(-50%); /* 实现水平居中 */
+    text-align: center;
+    width: auto;
+}
