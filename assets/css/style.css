@@ -242,6 +242,12 @@ a:hover {
     font-weight: 700;
 }
 
+/* 将Logo颜色绑定到中国红主色 */
+.logo-icon,
+.logo-text {
+    color: var(--color-primary); /* 绑定到 #C62F2F */
+}
+
 .nav-menu {
     display: flex;
     align-items: center;
