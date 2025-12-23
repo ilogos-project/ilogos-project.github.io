@@ -385,11 +385,12 @@ a:hover {
 }
 
 /* 5. 按钮区域：作为另一个flex子项，将其固定在底部 */
-.hero-actions {
+header .hero .hero-actions {
     /* 关键：在 .hero 的 space-between 布局中，此项目会自然靠底 */
     text-align: center;
     width: 100%;
-    padding-bottom: 100px; /* 控制按钮离底部的具体距离 */
+    /* 核心：用高特异性选择器覆盖全局 * {padding:0;}，并设置上下边距 */
+    padding: 20px 0 100px 0 !important; /* 上 右 下 左 */
     /* 确保自身内部按钮居中 */
     display: flex;
     justify-content: center;
