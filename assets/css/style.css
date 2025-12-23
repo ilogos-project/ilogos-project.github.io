@@ -389,7 +389,7 @@ a:hover {
     /* 关键：在 .hero 的 space-between 布局中，此项目会自然靠底 */
     text-align: center;
     width: 100%;
-    padding-bottom: 40px; /* 控制按钮离底部的具体距离 */
+    padding-bottom: 100px; /* 控制按钮离底部的具体距离 */
     /* 确保自身内部按钮居中 */
     display: flex;
     justify-content: center;
