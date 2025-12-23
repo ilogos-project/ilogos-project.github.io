@@ -385,19 +385,24 @@ a:hover {
 }
 
 /* 5. 按钮区域：作为另一个flex子项，将其固定在底部 */
+/* 专门覆盖 * 规则对 .hero-actions 的影响 */
 header .hero .hero-actions {
-    text-align: center;
-    width: 100%;
-    /* 核心：覆盖全局重置，设置上下边距 */
+    /* 1. 首先，重置 margin，确保我们的 auto 能生效 */
+    margin: 0 !important; 
+    /* 2. 然后，单独设置我们需要的顶部 margin */
+    margin-top: auto !important;
+    
+    /* 3. 同样处理 padding */
+    padding: 0 !important;
+    /* 4. 然后，单独设置我们需要的上下 padding */
     padding: 20px 0 100px 0 !important;
-    /* 确保自身内部按钮居中 */
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-    /* 🚨 最关键的两行：粘性底部 */
-    margin-top: auto !important;   /* 这个属性会将它推到底部 */
-    flex-shrink: 0;               /* 防止在空间不足时被压缩 */
+    
+    /* 其他必要属性 */
+    flex-shrink: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
 }
 /* ===== 核心工具区域 ===== */
 .tools-section {
