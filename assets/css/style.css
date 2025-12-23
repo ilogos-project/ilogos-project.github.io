@@ -350,17 +350,6 @@ a:hover {
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--color-primary-bg) 0%, transparent 100%);
-    z-index: 0;
-}
-
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
