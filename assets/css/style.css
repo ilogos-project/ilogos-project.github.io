@@ -798,48 +798,62 @@ a:hover {
         justify-content: center;
     }
 }
-/* 1. 调整英雄区域，确保内容能灵活伸展到底部 */
+/* ===== 英雄区域主样式 ===== */
 .hero {
-    min-height: 80vh; /* 可调整，如 600px, 70vh */
+    min-height: 80vh; /* 区域总高度，可自由调整，如 600px, 70vh */
     display: flex;
-    align-items: center; /* 垂直居中整个容器 */
+    align-items: center; /* 垂直居中子容器 */
+    justify-content: center; /* 水平居中子容器 */
+    text-align: center; /* 继承性居中，影响内部文本 */
+    position: relative; /* 为按钮的绝对定位提供参考 */
+    box-sizing: border-box;
 }
 
-/* 2. 主容器：关键！使用弹性列布局并允许内容撑满空间 */
+/* ===== 主容器：控制内部上下结构 ===== */
 .container.hero-container {
     display: flex;
     flex-direction: column;
     height: 100%; /* 继承父级高度 */
     width: 100%;
-    /* 不使用 justify-content，改由内部元素自动填充 */
+    max-width: 1200px; /* 可选，限制最大宽度使内容不会过宽 */
+    margin: 0 auto; /* 自身在.hero中水平居中 */
+    justify-content: space-between; /* 标题在上，按钮在下 */
+    align-items: center; /* 子项水平居中 */
+    padding: 40px 20px; /* 增加内边距，避免内容贴边 */
+    box-sizing: border-box;
 }
 
-/* 3. 标题区域：精确居中，使用等线字体 */
+/* ===== 标题区域：精确居中 ===== */
 .hero-content {
-    text-align: center; /* 文字水平居中 */
-    /* 关键：使用自动外边距在垂直方向上也居中 */
-    margin: auto; /* 这个属性在弹性列布局中，会使该元素在剩余空间内垂直水平居中 */
     width: 100%;
+    /* 移除所有margin，由父容器的 justify-content 控制垂直位置 */
+    margin: 0;
 }
 
-/* 4. 标题样式：等线字体，确保单行完整显示 */
+/* ===== 标题文字样式 ===== */
 .hero-title {
-    font-family: "DengXian", "等线", "Microsoft YaHei", sans-serif; /* 等线字体 */
-    font-weight: bold; /* 通常等线粗体更清晰 */
+    font-family: "DengXian", "等线", "Microsoft YaHei", sans-serif;
+    font-weight: bold;
     white-space: nowrap;
     overflow: visible;
-    text-align: center;
     width: 100%;
-    /* 安全的响应式字体大小，优先保证完整显示 */
-    font-size: clamp(2rem, 4.5vw, 2.8rem); /* 最大值稍减，确保显示 */
-    margin: 0 0 10px 0; /* 只需底部一点间距 */
+    margin: 0 auto; /* 水平居中 */
+    padding: 0;
+    /* 安全的响应式字体，确保完整显示 */
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    line-height: 1.2;
+    text-align: center; /* 再次确保文本居中 */
 }
 
-/* 5. 按钮区域：精确居中并紧贴底部 */
+/* ===== 按钮区域：强制底部居中 ===== */
 .hero-actions {
-    text-align: center; /* 按钮内部水平居中 */
     width: 100%;
-    /* 关键：移除上边距，直接将其定位在底部 */
-    margin-top: 0;
-    padding: 30px 0; /* 这个内边距决定按钮离屏幕底部的距离，可调 */
+    text-align: center; /* 使按钮在容器内水平居中 */
+    /* 关键：使用绝对定位将其锁定在英雄区域的底部 */
+    position: absolute;
+    bottom: 40px; /* 控制按钮离底部的距离，可随意调整 */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 0;
 }
