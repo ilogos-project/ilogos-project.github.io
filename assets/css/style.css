@@ -372,30 +372,29 @@ a:hover {
     z-index: 1;
 }
 
-/* 内容容器 - 使用flex布局实现主内容居中 */
+/* 修改 .hero-container 确保居中 */
 .hero-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 主内容垂直居中 */
+    justify-content: center; /* 确保内容垂直居中 */
     align-items: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    flex: 1; /* 占据可用空间，让主内容自然居中 */
+    flex: 1;
     position: relative;
     z-index: 2;
-    height: 100%; /* 确保容器充满高度 */
+    height: 100%;
 }
 
-/* 内容区域 - 标题和副标题的容器 */
+/* 修改 .hero-content 确保它也能帮助居中 */
 .hero-content {
     text-align: center;
     width: 100%;
     max-width: 100%;
-    margin: auto 0; /* 在flex容器中垂直居中 */
+    margin: auto 0; /* 添加这行，让内容在flex容器中自然居中 */
     padding: 0;
-    overflow: visible;
 }
 
 /* 标题 - 上下左右居中的关键 */
