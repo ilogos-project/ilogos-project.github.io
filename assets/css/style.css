@@ -406,26 +406,29 @@ a:hover {
     font-size: clamp(1.8rem, 4vw, 3.2rem);
     line-height: 1.15;
     color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
     text-align: center;
     margin: 0;
     padding: 0;
+    width: 100%;
+    max-width: 100%;
     
-    /* 确保标题居中 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px; /* 确保有足够高度垂直居中 */
+    /* 【已修复】只保留一个display属性 */
+    display: block; /* 或使用 flex，但不能两个都有 */
+    
+    /* 确保标题居中 - 通过父容器控制，不是标题自身 */
+    /* 移除这些flex属性，它们对block元素无效 */
+    /* display: flex; */ /* 删除这行 */
+    /* flex-direction: column; */ /* 删除这行 */
+    /* justify-content: center; */ /* 删除这行 */
+    /* align-items: center; */ /* 删除这行 */
+    /* min-height: 100px; */ /* 删除这行 */
     
     /* 防止文字溢出 */
     word-break: keep-all;
     overflow-wrap: break-word;
     hyphens: none;
-    
-    width: 100%;
-    max-width: 100%;
 }
-
 /* 副标题 */
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.5rem);
