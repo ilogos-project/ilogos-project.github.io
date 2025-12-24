@@ -912,6 +912,20 @@ a:hover {
     }
 }
 
+/* 单个卡片居中样式 */
+.single-card {
+    margin: 0 auto !important;
+    max-width: 420px;
+    width: 100%;
+}
+
+/* 或者修改网格容器 */
+.institutions-grid:has(.single-card) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* ===== 精选内容区域 ===== */
 .featured-section {
     padding: var(--spacing-xxl) 0;
