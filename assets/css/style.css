@@ -762,21 +762,46 @@ a:hover {
     gap: var(--spacing-sm);
 }
 
-/* ===== 合作机构区域 ===== */
+/* ===== 合作机构区域 - 已修改为全宽居中版 ===== */
 .institutions-section {
     padding: var(--spacing-xxl) 0;
     background-color: var(--color-bg-light);
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
+    
+    /* 关键：全宽背景扩展到左右边缘 */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+    /* 容器居中控制 */
+    display: flex;
+    justify-content: center;
 }
 
+/* 内容容器居中 */
+.institutions-section > .container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    text-align: center;
+}
+
+/* 网格容器 - 改为单列居中（因为只有一个卡片） */
 .institutions-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: flex-start; /* 顶部对齐 */
     gap: var(--spacing-lg);
     margin-top: var(--spacing-lg);
+    width: 100%;
 }
 
+/* 卡片样式 - 完全居中设计 */
 .institution-card {
     background-color: var(--color-bg);
     border: 1px solid var(--color-border);
@@ -784,6 +809,16 @@ a:hover {
     padding: var(--spacing-xl);
     text-align: center;
     transition: all var(--transition-normal);
+    
+    /* 关键：flex布局实现内容完全居中 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+    justify-content: flex-start; /* 顶部开始 */
+    
+    /* 控制卡片宽度 */
+    max-width: 450px;
+    width: 100%;
 }
 
 .institution-card:hover {
@@ -792,6 +827,7 @@ a:hover {
     border-color: var(--color-primary);
 }
 
+/* Logo容器 - 居中 */
 .institution-logo {
     width: 120px;
     height: 120px;
@@ -807,6 +843,7 @@ a:hover {
     object-fit: contain;
 }
 
+/* Logo占位符 - 居中 */
 .institution-logo-placeholder {
     width: 120px;
     height: 120px;
@@ -819,20 +856,60 @@ a:hover {
     border: 2px solid var(--color-border);
 }
 
+/* 机构名称 - 居中 */
 .institution-name {
     margin-bottom: var(--spacing-sm);
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
 }
 
+/* 机构简介 - 居中 */
 .institution-brief {
     color: var(--color-text-light);
     margin-bottom: var(--spacing-md);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    width: 100%;
+    line-height: 1.5;
+    max-width: 400px; /* 限制最大宽度，保持可读性 */
 }
 
+/* 按钮区域 - 居中 */
 .institution-actions {
     margin-top: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .institutions-section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .institutions-section > .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .institution-card {
+        padding: var(--spacing-lg);
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .institutions-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .institution-card {
+        padding: var(--spacing-md);
+    }
+    
+    .institution-name {
+        font-size: 1.3rem;
+    }
 }
 
 /* ===== 精选内容区域 ===== */
