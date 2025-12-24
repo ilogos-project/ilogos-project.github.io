@@ -405,8 +405,8 @@ a:hover {
     /* 响应式字体：移动端1.8rem，桌面端3.2rem */
     font-size: clamp(1.8rem, 4vw, 3.2rem);
     line-height: 1.15;
-    color: #ffffff;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    color: #000000;
+    /* text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);*/
     text-align: center;
     margin: 0;
     padding: 0;
