@@ -340,69 +340,320 @@ a:hover {
     color: var(--color-border);
 }
 
-/* ===== 英雄区域 ===== */
-/* ===== 基于现有Flex布局的修正方案 ===== */
+/* ====== 英雄区域 - 完全重写版本 ====== */
+/* 删除原有.hero相关样式，用以下代码替换 */
 
-/* 1. 确保英雄区域是垂直方向的flex容器，并扩大高度 */
+/* 重置英雄区域的基础样式 */
 .hero {
-    /* 关键：不再尝试改为grid，而是沿用并强化现有的flex属性 */
-    flex-direction: column !important;
-    justify-content: space-between !important; /* 头部、中部、底部空间分布 */
-    align-items: center !important; /* 子项水平居中 */
-    min-height: 85vh !important;
-    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* 高度减少三分之一：从约100vh减少到约66vh */
+    min-height: 66vh;
+    max-height: 66vh;
+    height: 66vh;
+    
+    padding: 20px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
     box-sizing: border-box;
 }
 
-/* 2. 主容器：作为flex子项，使其内容可居中 */
-.container.hero-container {
-    /* 关键：在flex父容器下，用margin实现垂直居中 */
-    margin: auto 0 !important; /* 上下auto在column布局中可实现垂直居中 */
+/* 背景视频/图片容器 */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 内部内容水平居中 */
+    height: 66vh; /* 与主容器高度一致 */
+    object-fit: cover;
+    z-index: 1;
 }
 
-/* 3. 标题区域：处理单行和居中 */
+/* 内容容器 */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+/* 内容区域 */
 .hero-content {
     text-align: center;
     width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    overflow: visible;
 }
 
-/* 4. 标题样式：强制单行，等线字体 */
+/* 标题 - 使用clamp函数实现完美的响应式字体 */
 .hero-title {
-    font-family: "DengXian", "等线", "Microsoft YaHei", sans-serif;
-    font-weight: bold;
-    white-space: nowrap;
+    font-family: "等线", "DengXian", "Microsoft YaHei", sans-serif;
+    font-weight: 700;
+    
+    /* 响应式字体：移动端1.8rem，桌面端3.2rem */
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 10px 0;
+    padding: 0;
+    
+    /* 防止文字溢出 */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    hyphens: none;
+    
+    /* 确保不超出容器 */
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+/* 副标题 */
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.4;
+    margin: 0 0 30px 0;
+    color: rgba(255, 255, 255, 0.9);
     text-align: center;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    font-size: clamp(2.2rem, 5vw, 3rem);
-    line-height: 1.2;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word;
 }
 
-/* 5. 按钮区域：作为另一个flex子项，将其固定在底部 */
-/* 专门覆盖 * 规则对 .hero-actions 的影响 */
-header .hero .hero-actions {
-    /* 1. 首先，重置 margin，确保我们的 auto 能生效 */
-    margin: 0 !important; 
-    /* 2. 然后，单独设置我们需要的顶部 margin */
-    margin-top: auto !important;
+/* 按钮容器 */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 3;
+}
+
+/* 按钮样式 */
+.hero-button {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    min-width: 140px;
+}
+
+.hero-button.primary {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.hero-button.secondary {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+/* ====== 响应式设计 - 移动设备优化 ====== */
+
+/* 平板设备 (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .hero {
+        min-height: 60vh;
+        max-height: 60vh;
+        height: 60vh;
+        padding: 15px;
+    }
     
-    /* 3. 同样处理 padding */
-    padding: 0 !important;
-    /* 4. 然后，单独设置我们需要的上下 padding */
-    padding: 20px 0 100px 0 !important;
+    .hero-background {
+        height: 60vh;
+    }
     
-    /* 其他必要属性 */
-    flex-shrink: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    text-align: center !important;
-    width: 100% !important;
+    .hero-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.95rem, 1.8vw, 1.3rem);
+        margin-bottom: 25px;
+    }
+}
+
+/* 移动设备 (425px - 767px) */
+@media screen and (max-width: 767px) {
+    .hero {
+        min-height: 55vh;
+        max-height: 55vh;
+        height: 55vh;
+        padding: 10px;
+    }
+    
+    .hero-background {
+        height: 55vh;
+    }
+    
+    .hero-container {
+        padding: 0 15px;
+    }
+    
+    .hero-title {
+        /* 确保在小屏幕上文字不会溢出 */
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        line-height: 1.3;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        padding: 0 5px;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+        line-height: 1.4;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .hero-button {
+        width: 100%;
+        max-width: 280px;
+        padding: 10px 20px;
+    }
+}
+
+/* 小屏幕移动设备 (小于425px) */
+@media screen and (max-width: 424px) {
+    .hero {
+        min-height: 50vh;
+        max-height: 50vh;
+        height: 50vh;
+    }
+    
+    .hero-background {
+        height: 50vh;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+        line-height: 1.3;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 15px;
+    }
+    
+    .hero-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        min-width: 120px;
+    }
+}
+
+/* 超小屏幕设备 (小于320px) */
+@media screen and (max-width: 319px) {
+    .hero {
+        min-height: 45vh;
+        max-height: 45vh;
+        height: 45vh;
+        padding: 5px;
+    }
+    
+    .hero-background {
+        height: 45vh;
+    }
+    
+    .hero-container {
+        padding: 0 10px;
+    }
+    
+    .hero-title {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .hero-actions {
+        gap: 8px;
+    }
+}
+
+/* ====== 特殊情况的修复 ====== */
+
+/* 确保在Safari等浏览器中clamp函数正常工作 */
+@supports not (font-size: clamp(1rem, 2vw, 2rem)) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    @media (max-width: 767px) {
+        .hero-title {
+            font-size: 1.4rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.95rem;
+        }
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .hero {
+        min-height: auto;
+        height: auto;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .hero-title {
+        color: black !important;
+    }
+    
+    .hero-background {
+        display: none;
+    }
+    
+    .hero-actions {
+        display: none;
+    }
 }
 /* ===== 核心工具区域 ===== */
 .tools-section {
@@ -481,43 +732,6 @@ header .hero .hero-actions {
 .tool-link:hover {
     color: var(--color-primary-dark);
     gap: var(--spacing-sm);
-}
-
-/* 在现有CSS文件末尾添加 */
-
-/* 减少英雄区域高度 - 通过更具体的选择器 */
-body .hero-section,
-.home-page .hero-section,
-main .hero-section {
-    min-height: 60vh;
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-/* 移动设备响应式调整 */
-@media (max-width: 768px) {
-    /* 文字大小调整 */
-    body .hero-section .hero-title,
-    .hero-section h1.hero-title {
-        font-size: 1.8rem;
-        line-height: 1.2;
-        margin-bottom: 12px;
-    }
-    
-    body .hero-section .hero-subtitle,
-    .hero-section p.hero-subtitle {
-        font-size: 1rem;
-        line-height: 1.3;
-        margin-bottom: 20px;
-        max-width: 100%;
-    }
-    
-    /* 容器高度调整 */
-    body .hero-section {
-        min-height: 50vh;
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
 }
 
 /* ===== 合作机构区域 ===== */
@@ -834,63 +1048,5 @@ main .hero-section {
     .btn {
         width: 100%;
         justify-content: center;
-    }
-}
-
-/* ====== 英雄区域优化调整 ====== */
-
-/* 1. 减少高度（通过添加父级选择器增加特异性） */
-body .hero-section,
-main .hero-section {
-    min-height: 60vh;
-}
-
-/* 2. 移动设备文字溢出解决方案 */
-@media (max-width: 768px) {
-    /* 文字容器 */
-    .hero-content {
-        max-width: 100%;
-        padding: 0 15px;
-    }
-    
-    /* 标题 - 使用具体的父级选择器 */
-    .hero-content .hero-title,
-    .hero-text-container .hero-title {
-        font-size: 1.8rem;
-        line-height: 1.2;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto; /* 支持英文断字 */
-    }
-    
-    /* 副标题 */
-    .hero-content .hero-subtitle {
-        font-size: 1rem;
-        line-height: 1.3;
-        max-width: 100%;
-    }
-    
-    /* 高度进一步减少 */
-    .hero-section {
-        min-height: 50vh;
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-}
-
-/* 3. 小屏幕设备 */
-@media (max-width: 480px) {
-    .hero-section {
-        min-height: 40vh;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-    
-    .hero-content .hero-title {
-        font-size: 1.5rem;
-    }
-    
-    .hero-content .hero-subtitle {
-        font-size: 0.9rem;
     }
 }
