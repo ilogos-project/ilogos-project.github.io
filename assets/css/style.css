@@ -347,12 +347,10 @@ a:hover {
 .hero {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     
     /* 高度减少三分之一：从约100vh减少到约66vh */
     min-height: 66vh;
-    max-height: 66vh;
     height: 66vh;
     
     padding: 20px;
@@ -369,37 +367,38 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 66vh; /* 与主容器高度一致 */
+    height: 100%;
     object-fit: cover;
     z-index: 1;
 }
 
-/* 内容容器 */
+/* 内容容器 - 使用flex布局实现主内容居中 */
 .hero-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* 主内容垂直居中 */
     align-items: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    flex: 1;
+    flex: 1; /* 占据可用空间，让主内容自然居中 */
     position: relative;
     z-index: 2;
+    height: 100%; /* 确保容器充满高度 */
 }
 
-/* 内容区域 */
+/* 内容区域 - 标题和副标题的容器 */
 .hero-content {
     text-align: center;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto;
-    padding: 10px 0;
+    margin: auto 0; /* 在flex容器中垂直居中 */
+    padding: 0;
     overflow: visible;
 }
 
-/* 标题 - 使用clamp函数实现完美的响应式字体 */
+/* 标题 - 上下左右居中的关键 */
 .hero-title {
     font-family: "等线", "DengXian", "Microsoft YaHei", sans-serif;
     font-weight: 700;
@@ -409,25 +408,30 @@ a:hover {
     line-height: 1.15;
     color: #ffffff;
     text-align: center;
-    margin: 0 0 10px 0;
+    margin: 0;
     padding: 0;
+    
+    /* 确保标题居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px; /* 确保有足够高度垂直居中 */
     
     /* 防止文字溢出 */
     word-break: keep-all;
     overflow-wrap: break-word;
     hyphens: none;
     
-    /* 确保不超出容器 */
     width: 100%;
     max-width: 100%;
-    display: block;
 }
 
 /* 副标题 */
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.5rem);
     line-height: 1.4;
-    margin: 0 0 30px 0;
+    margin: 10px 0 0 0; /* 与标题的间距 */
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
     width: 100%;
@@ -437,43 +441,66 @@ a:hover {
     word-wrap: break-word;
 }
 
-/* 按钮容器 */
+/* 按钮容器 - 固定在底部 */
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    margin-top: 30px;
     width: 100%;
     padding: 0;
     position: relative;
     z-index: 3;
+    
+    /* 固定在英雄区域底部 */
+    margin-top: auto; /* 关键：将按钮推到容器底部 */
+    padding-bottom: 40px; /* 与底部的距离 */
 }
 
-/* 按钮样式 */
+/* 按钮卡片样式 */
 .hero-button {
-    display: inline-block;
-    padding: 12px 28px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     cursor: pointer;
     text-align: center;
-    min-width: 140px;
+    min-width: 160px;
+    min-height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    background: white;
 }
 
 .hero-button.primary {
-    background-color: #007bff;
+    background: rgba(0, 123, 255, 0.95);
     color: white;
-    border: 1px solid #007bff;
+}
+
+.hero-button.primary:hover {
+    background: #007bff;
 }
 
 .hero-button.secondary {
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+}
+
+.hero-button.secondary:hover {
+    background: white;
 }
 
 /* ====== 响应式设计 - 移动设备优化 ====== */
@@ -482,23 +509,22 @@ a:hover {
 @media screen and (max-width: 1024px) {
     .hero {
         min-height: 60vh;
-        max-height: 60vh;
         height: 60vh;
         padding: 15px;
-    }
-    
-    .hero-background {
-        height: 60vh;
     }
     
     .hero-title {
         font-size: clamp(1.6rem, 3.5vw, 2.5rem);
         line-height: 1.2;
+        min-height: 80px;
     }
     
     .hero-subtitle {
         font-size: clamp(0.95rem, 1.8vw, 1.3rem);
-        margin-bottom: 25px;
+    }
+    
+    .hero-actions {
+        padding-bottom: 30px;
     }
 }
 
@@ -506,13 +532,8 @@ a:hover {
 @media screen and (max-width: 767px) {
     .hero {
         min-height: 55vh;
-        max-height: 55vh;
         height: 55vh;
         padding: 10px;
-    }
-    
-    .hero-background {
-        height: 55vh;
     }
     
     .hero-container {
@@ -520,32 +541,32 @@ a:hover {
     }
     
     .hero-title {
-        /* 确保在小屏幕上文字不会溢出 */
         font-size: clamp(1.4rem, 3vw, 2rem);
         line-height: 1.3;
         word-break: break-word;
         overflow-wrap: anywhere;
         padding: 0 5px;
+        min-height: 60px;
     }
     
     .hero-subtitle {
         font-size: clamp(0.9rem, 1.6vw, 1.1rem);
         line-height: 1.4;
-        margin-bottom: 20px;
         padding: 0 10px;
     }
     
     .hero-actions {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
-        margin-top: 20px;
+        gap: 12px;
+        padding-bottom: 25px;
     }
     
     .hero-button {
         width: 100%;
         max-width: 280px;
-        padding: 10px 20px;
+        padding: 14px 20px;
+        min-height: 70px;
     }
 }
 
@@ -553,29 +574,30 @@ a:hover {
 @media screen and (max-width: 424px) {
     .hero {
         min-height: 50vh;
-        max-height: 50vh;
-        height: 50vh;
-    }
-    
-    .hero-background {
         height: 50vh;
     }
     
     .hero-title {
         font-size: clamp(1.2rem, 2.5vw, 1.6rem);
         line-height: 1.3;
+        min-height: 50px;
     }
     
     .hero-subtitle {
         font-size: 0.85rem;
         line-height: 1.4;
-        margin-bottom: 15px;
+    }
+    
+    .hero-actions {
+        padding-bottom: 20px;
+        gap: 10px;
     }
     
     .hero-button {
-        padding: 8px 16px;
+        padding: 12px 16px;
         font-size: 0.9rem;
-        min-width: 120px;
+        min-width: 140px;
+        min-height: 65px;
     }
 }
 
@@ -583,13 +605,8 @@ a:hover {
 @media screen and (max-width: 319px) {
     .hero {
         min-height: 45vh;
-        max-height: 45vh;
         height: 45vh;
         padding: 5px;
-    }
-    
-    .hero-background {
-        height: 45vh;
     }
     
     .hero-container {
@@ -599,6 +616,7 @@ a:hover {
     .hero-title {
         font-size: 1.1rem;
         line-height: 1.3;
+        min-height: 40px;
     }
     
     .hero-subtitle {
@@ -608,6 +626,13 @@ a:hover {
     
     .hero-actions {
         gap: 8px;
+        padding-bottom: 15px;
+    }
+    
+    .hero-button {
+        min-width: 120px;
+        padding: 10px 14px;
+        min-height: 60px;
     }
 }
 
@@ -655,6 +680,7 @@ a:hover {
         display: none;
     }
 }
+
 /* ===== 核心工具区域 ===== */
 .tools-section {
     padding: var(--spacing-xxl) 0;
