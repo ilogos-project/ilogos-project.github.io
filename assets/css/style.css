@@ -483,6 +483,43 @@ header .hero .hero-actions {
     gap: var(--spacing-sm);
 }
 
+/* 在现有CSS文件末尾添加 */
+
+/* 减少英雄区域高度 - 通过更具体的选择器 */
+body .hero-section,
+.home-page .hero-section,
+main .hero-section {
+    min-height: 60vh;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* 移动设备响应式调整 */
+@media (max-width: 768px) {
+    /* 文字大小调整 */
+    body .hero-section .hero-title,
+    .hero-section h1.hero-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+    
+    body .hero-section .hero-subtitle,
+    .hero-section p.hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.3;
+        margin-bottom: 20px;
+        max-width: 100%;
+    }
+    
+    /* 容器高度调整 */
+    body .hero-section {
+        min-height: 50vh;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
 /* ===== 合作机构区域 ===== */
 .institutions-section {
     padding: var(--spacing-xxl) 0;
