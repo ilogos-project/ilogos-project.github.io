@@ -50,7 +50,7 @@ st.markdown("""
 
 # -------------------- 侧边栏（配置区） --------------------
 with st.sidebar:
-    st.image("http://ilogosopen.org/index.html", width=150)  # 可替换为你网站的logo URL
+    st.markdown("<h2 style='text-align: center; color: #1E3A8A;'>🏛️ iLogos Open</h2>", unsafe_allow_html=True)
     st.markdown("### 🔐 配置")
     
     # API 密钥输入
