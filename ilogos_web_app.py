@@ -50,19 +50,29 @@ st.markdown("""
 
 # -------------------- 侧边栏（配置区） --------------------
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #1E3A8A;'>🏛️ iLogos Open</h2>", unsafe_allow_html=True)
+    # 你的Logo标题代码... (例如 st.markdown("### 🏛️ iLogos Open"))
+
     st.markdown("### 🔐 配置")
-    
-    # API 密钥输入
-    api_key = st.text_input(
-        "DeepSeek API 密钥",
-        type="password",
-        help="从 platform.deepseek.com 获取",
-        value=st.session_state.get("api_key", "")
-    )
-    if api_key:
-        st.session_state["api_key"] = api_key
-        st.success("✅ API 密钥已设置")
+
+    # 🔴 核心修复：优先从 Streamlit Cloud Secrets 安全读取密钥
+    # 如果Secrets中已配置，则自动使用，不显示输入框
+    if "DEEPSEEK_API_KEY" in st.secrets:
+        st.session_state["api_key"] = st.secrets["DEEPSEEK_API_KEY"]
+        st.success("✅ API 密钥已从安全配置加载")
+    else:
+        # 如果Secrets未配置，则显示输入框让用户手动输入（用于开发或临时使用）
+        st.info("ℹ️ 请在下方输入密钥，或联系管理员在后台配置。")
+        api_key = st.text_input(
+            "DeepSeek API 密钥",
+            type="password",
+            help="从 platform.deepseek.com 获取",
+            value=st.session_state.get("api_key", "")
+        )
+        if api_key:
+            st.session_state["api_key"] = api_key
+            st.success("✅ API 密钥已设置")
+
+    # ... 后面的文件上传、成本监控等代码保持不变 ...
     
     st.markdown("---")
     st.markdown("### 📁 文档上传")
