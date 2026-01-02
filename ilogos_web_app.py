@@ -50,7 +50,7 @@ st.markdown("""
 
 # -------------------- 侧边栏（配置区） --------------------
 with st.sidebar:
-    st.image("https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=iLogos+Open", width=150)  # 可替换为你网站的logo URL
+    st.image("http://ilogosopen.org/index.html", width=150)  # 可替换为你网站的logo URL
     st.markdown("### 🔐 配置")
     
     # API 密钥输入
